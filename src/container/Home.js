@@ -1,15 +1,16 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-// import { logoutUser } from '../actions'
+import { getProfileFetch, loginUser } from '../actions'
 
 class Home extends Component {
 
-  // componentDidMount(){
-  //   // console.log(this.props.loadCats)
-  //   this.props.loadCats()
-  // }
+  componentDidMount(){
+    // console.log(this.props.loadCats)
+    this.props.getProfileFetch()
+  }
 
   render() {
+    // debugger
     return (
       
         this.props.currentUser === undefined ? 
@@ -18,11 +19,9 @@ class Home extends Component {
         <div style={bodyStyle}>
           <h1>Home Page. Welcome {this.props.currentUser.username}</h1>
         </div>
-
+        // 
     )
-
   }
-
 }
 
 const bodyStyle = {
@@ -37,13 +36,10 @@ const bodyStyle = {
 
 const mapStateToProps = state => {
   return {
-    allSkills: state.allSkills,
-    currentUser: state.currentUser
+    currentUser: state.currentUser,
+    allSkills: state.allSkills
   }
 }
 
-// const mapDispatchToProps = dispatch => ({
-//   logoutUser: () => dispatch(logoutUser())
-// })
 
-export default connect(mapStateToProps)(Home)
+export default connect(mapStateToProps, { getProfileFetch, loginUser })(Home)

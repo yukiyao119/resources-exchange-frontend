@@ -11,14 +11,14 @@
 //   }
 // }
 
-const initialState = {
-  allUsers: [],
-  allSkills: [],
-  currentUser: {},
-  mySkill: []
-}
+// state = {
+//   allUsers: [],
+//   allSkills: [],
+//   currentUser: {},
+//   mySkill: []
+// }
 
-const reducer = (state = initialState, action) => {
+const reducer = (state = {}, action) => {
 
     switch (action.type) {
       case 'ADD_USER':

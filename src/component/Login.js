@@ -7,7 +7,7 @@ class Login extends Component {
   state = {
     username: "",
     password: ""
-  };
+  }
 
   onChange = event => {
     this.setState({
@@ -52,9 +52,9 @@ const formStyle = {
   border: "2px green solid"
 }
 
-const mapDispatchToProps = dispatch => ({
-  userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo)),
-  // loginUser: userObj => ({ type: "LOGIN_USER",payload: userObj })
-})
+// const mapDispatchToProps = dispatch => ({
+//   userLoginFetch: userInfo => dispatch(userLoginFetch(userInfo)),
+//   // loginUser: userObj => ({ type: "LOGIN_USER",payload: userObj })
+// })
 
-export default connect(null, mapDispatchToProps)(Login);
+export default connect(null, { userLoginFetch })(Login);
