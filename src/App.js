@@ -1,66 +1,53 @@
-import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
-import { connect } from 'react-redux';
-
+import React, { useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux'
 import { BrowserRouter } from 'react-router-dom'
-import { Switch, Route } from 'react-router-dom';
+import { Route } from 'react-router-dom'
 
 import Home from './container/Home'
 import Nav from './component/Nav'
 import Login from './component/Login'
 import Signup from './component/Signup'
 import Profile from './container/Profile'
-import {getProfileFetch} from './actions'
 
-class App extends React.Component {
+import { getProfileFetch } from './actions/UserActions'
+import { loadAllSkills } from './actions/SkillActions'
+import { loadAllExchanges } from './actions/ExchangeActions'
 
-  // state = {
-  //   page: 'login'
-  // }
- 
-  // redirect = (page) => {
-  //   this.setState({ page })
-  // }
+ const App = () => {
 
-  componentDidMount(){
-    this.props.getProfileFetch()
-  }
+  const dispatch = useDispatch()
+  const currentUser = useSelector(state => state.currentUser)
 
-  // async componentDidMount(){
-  //   await this.props.getProfileFetch()
-  // }
+  useEffect(() => { 
+    dispatch(getProfileFetch()) 
+    dispatch(loadAllSkills())
+    dispatch(loadAllExchanges())
+   }, [dispatch])
 
-  // handleSignup = () => { this.setState({page: 'signup'})}
-
-  // handleLogin = () => {this.setState({ page: 'login'})}
-
-  render() {
-    return (
+  console.log("currentUser", currentUser);
+  
+  
+  return (
     <BrowserRouter>
 
       <Nav />
-      <Switch>
-        <Route path="/signup" component={Signup} />
-        <Route path="/login" component={Login}/>
+      {/* <Switch> */}
+      
+      {Object.keys(currentUser).length > 0 ? 
+      <>
         <Route path="/profile" component={Profile}/>
         <Route exact path="/" component={Home}/>
-      </Switch>
+      </>
+      : 
+      <>
+        <Route path="/signup" component={Signup} />
+        <Route path="/login" component={Login}/>
+      </>
+      }
+      {/* </Switch> */}
 
     </BrowserRouter>
-
-    )
-
-  }
+  )
 }
 
-// const mapStateToProps = state => ({
-//   currentUser: state.currentUser
-// })
-
-const mapDispatchToProps = dispatch => ({
-  getProfileFetch: () => dispatch(getProfileFetch()),
-  // loginUser: userObj => ({ type: "LOGIN_USER",payload: userObj })
-})
-
-export default connect(null, mapDispatchToProps)(App);
+export default App

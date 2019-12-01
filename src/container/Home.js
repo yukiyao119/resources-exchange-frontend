@@ -1,45 +1,84 @@
-import React, { Component } from "react";
-import { connect } from 'react-redux';
-import { getProfileFetch, loginUser } from '../actions'
+import React, { useEffect } from 'react';
+import { useSelector,useDispatch } from 'react-redux'
+import { loadAllUsers } from '../actions/UserActions'
+import SearchBar from '../component/SearchBar'
+import Skillboard from './Skillboard'
 
-class Home extends Component {
 
-  componentDidMount(){
-    // console.log(this.props.loadCats)
-    this.props.getProfileFetch()
-  }
+const Home = () => {
 
-  render() {
-    // debugger
-    return (
+  const dispatch = useDispatch()
+  const currentUser = useSelector(state => state.currentUser)
+
+  useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
+  // console.log(allUsers)
+  
+
+  const text = currentUser.username ? <h1>{currentUser.username} is currently logged in</h1>
+    : <h1>Pls log in</h1>
+  
+  return (
+    <React.Fragment >
+      <div style={homeStyle} > 
+        <div>{text}</div>
+        <SearchBar />
+        <Skillboard />
+      </div>
+    </React.Fragment>
+  )
+
+}
+
+const homeStyle = {
+  border: "1px purple solid"
+}
+
+export default Home
+
+
+
+// import React, { Component } from "react";
+// import { connect } from 'react-redux';
+// import { getProfileFetch, loginUser } from '../actions'
+
+// class Home extends Component {
+
+//   componentDidMount(){
+//     // console.log(this.props.loadCats)
+//     this.props.getProfileFetch()
+//   }
+
+//   render() {
+//     // debugger
+//     return (
       
-        this.props.currentUser === undefined ? 
-        <div>Please Log in</div>
-        :
-        <div style={bodyStyle}>
-          <h1>Home Page. Welcome {this.props.currentUser.username}</h1>
-        </div>
-        // 
-    )
-  }
-}
+//         this.props.currentUser === undefined ? 
+//         <div>Please Log in</div>
+//         :
+//         <div style={bodyStyle}>
+//           <h1>Home Page. Welcome {this.props.currentUser.username}</h1>
+//         </div>
+//         // 
+//     )
+//   }
+// }
 
-const bodyStyle = {
-  border: "2px pink solid"
-}
+// const bodyStyle = {
+//   border: "2px pink solid"
+// }
 
-      // <ul className="skill-container">
-      //   {
-      //     this.props.allSkills.map(skill => <Skill key={ skill.id } skill={ skill } />)
-      //   }
-      // </ul>
+//       // <ul className="skill-container">
+//       //   {
+//       //     this.props.allSkills.map(skill => <Skill key={ skill.id } skill={ skill } />)
+//       //   }
+//       // </ul>
 
-const mapStateToProps = state => {
-  return {
-    currentUser: state.currentUser,
-    allSkills: state.allSkills
-  }
-}
+// const mapStateToProps = state => {
+//   return {
+//     currentUser: state.currentUser,
+//     allSkills: state.allSkills
+//   }
+// }
 
 
-export default connect(mapStateToProps, { getProfileFetch, loginUser })(Home)
+// export default connect(mapStateToProps, { getProfileFetch, loginUser })(Home)
