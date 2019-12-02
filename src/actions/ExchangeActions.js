@@ -44,7 +44,32 @@ export const cancelThisExchange = exchange => dispatch => {
   }
   fetch(`http://localhost:3000/exchanges/${exchange.id}`, object)
   .then(r => {
-    debugger
+    // debugger
     dispatch(cancelExchange(exchange))
   })
+}
+
+// make a new exchange, add a exchange to all Xchanges
+export const addExchange = exchangeObj => ({
+  type: "ADD_EXCHANGE",
+  payload: exchangeObj
+})
+
+
+// post and add a new to /exchanges
+export const addAnExchange = (exchangeObj) => dispatch => {
+  const object = {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(exchangeObj)
+    }
+  fetch("http://localhost:3000/exchanges", object)
+    .then(res => res.json())
+    .then(data => {
+      debugger
+      // console.log("backend created new exchange", data)
+      dispatch(addExchange(data))
+    })
 }

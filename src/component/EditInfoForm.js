@@ -16,7 +16,6 @@ const EditInfoForm = () => {
   })
 
   const handleChange = (e) => {
-    console.log("changing input value")
     setInfoForm({...infoForm, [e.target.name]: e.target.value})
   }
 

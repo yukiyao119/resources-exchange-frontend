@@ -8,6 +8,7 @@ const defaultState = {
   selectedExchange: {},
   selectedSkill: {},
   selectedUser: {}
+  // newExchange: false
 }
 
 const reducer = (state = defaultState, action) => {
@@ -47,6 +48,10 @@ const reducer = (state = defaultState, action) => {
         return {
           ...state, currentUser: {} 
         }
+      case 'SELECT_USER':
+          return {
+            ...state, selectedUser: action.payload
+          }
       case 'ADD_SKILL':
         return {
           ...state,
@@ -66,11 +71,20 @@ const reducer = (state = defaultState, action) => {
           allExchanges: [...state.allExchanges].filter(exchange => exchange !== action.payload),
           selectedExchange: {}
         }
+      case 'ADD_EXCHANGE':
+          return {
+            ...state,
+            allExchanges: [ ...state.allExchanges, action.user]
+          }
       case 'SELECT_SKILL':
         return {
           ...state,
           selectedSkill: action.payload
         }
+      // case 'NEW_EXCHANGE':
+      //   return {
+
+      //   }
       default: 
         return state
     }

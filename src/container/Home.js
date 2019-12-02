@@ -1,27 +1,23 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSelector,useDispatch } from 'react-redux'
 import { loadAllUsers } from '../actions/UserActions'
-import SearchBar from '../component/SearchBar'
 import Skillboard from './Skillboard'
 
 
 const Home = () => {
 
   const dispatch = useDispatch()
-  const currentUser = useSelector(state => state.currentUser)
-
   useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
-  // console.log(allUsers)
   
-
+  const currentUser = useSelector(state => state.currentUser)
+  
   const text = currentUser.username ? <h1>{currentUser.username} is currently logged in</h1>
     : <h1>Pls log in</h1>
-  
+
   return (
     <React.Fragment >
       <div style={homeStyle} > 
         <div>{text}</div>
-        <SearchBar />
         <Skillboard />
       </div>
     </React.Fragment>

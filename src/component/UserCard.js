@@ -1,10 +1,28 @@
-import React from 'react'
+import React, { useState }  from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { selectAUser } from '../actions/UserActions'
 import NewExchangeForm from './NewExchangeForm'
 
 
 const UserCard = (props) => {
 
+  const dispatch = useDispatch()
+
   const { displayname, bio, donated_hour, img, location, time_slot} = props.user
+
+  // console.log("selected user", selectedUser)
+  
+  const [newXStatus, setnewXStatus] = useState({
+    newX: false
+  })
+
+  const handleChange = (userObj) => {
+    setnewXStatus({
+      ...newXStatus,
+      newX: !newXStatus.newX
+    })
+    dispatch(selectAUser(userObj))
+  }
 
   return (
     <>
@@ -21,9 +39,9 @@ const UserCard = (props) => {
       <br />
       {time_slot}
       <br />
+    <button onClick={()=> handleChange(props.user)}>Request an Xchange!</button>
     </div>
-    
-      <NewExchangeForm />
+    { newXStatus.newX === true ? <NewExchangeForm /> : null}
     
     </>
   )

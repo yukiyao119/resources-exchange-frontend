@@ -35,8 +35,6 @@ export const userPostFetch = user => dispatch => {
     })
 }
 
-
-
 export const userLoginFetch = (user) => dispatch => {
     const object = {
       method: "POST",
@@ -127,4 +125,14 @@ export const editProfileInfo = (user, user_id) => dispatch => {
       dispatch(editProfile(data))
     })
   }
+}
+
+// select a user to have exchange, change state selectedUser 
+export const selectUser = user => ({
+  type: "SELECT_USER",
+  payload: user
+})
+
+export const selectAUser = (user) => dispatch => {
+  dispatch(selectUser(user))
 }

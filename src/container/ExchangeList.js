@@ -20,10 +20,9 @@ const ExchangeList = () => {
   }
   
   const text = myExchanges.empty ? (<h4>No exchanges yet</h4>) : myExchanges.map(exchange => (
-  <li 
-    key={exchange.id}
-    onClick={()=> {handleClick(exchange)}}
-  > Exchange No.{exchange.id}:  {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill}`}</li>))
+  <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
+    Exchange No.{exchange.id}:  {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill}`}
+  </li>))
 
   return (
     <React.Fragment>

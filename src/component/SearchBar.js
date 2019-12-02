@@ -1,13 +1,19 @@
 import React from 'react'
-// import { useSelector } from 'react-redux';
-// import { useDispatch } from 'react-redux';
-// import {logoutUser} from '../actions';
 
-const SearchBar = () => {
+const SearchBar = (props) => {
+
   return (
+    <React.Fragment>
     <div style={barStyle}>
       I am a searchBar!
+      <br />
+      <br />
+      <input type="text" 
+        autoComplete="off"
+        onChange={props.handleSearch} 
+        placeholder="Search..." />
     </div>
+    </React.Fragment>
   )
 }
 
