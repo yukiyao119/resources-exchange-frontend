@@ -12,6 +12,7 @@ import Profile from './container/Profile'
 import { getProfileFetch } from './actions/UserActions'
 import { loadAllSkills } from './actions/SkillActions'
 import { loadAllExchanges } from './actions/ExchangeActions'
+import { loadAllReviews } from './actions/ReviewActions'
 
  const App = () => {
 
@@ -22,6 +23,7 @@ import { loadAllExchanges } from './actions/ExchangeActions'
     dispatch(getProfileFetch()) 
     dispatch(loadAllSkills())
     dispatch(loadAllExchanges())
+    dispatch(loadAllReviews())
    }, [dispatch])
 
   console.log("currentUser", currentUser);

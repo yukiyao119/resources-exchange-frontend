@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector } from 'react-redux'
 // import { getProfileFetch } from '../actions/UserActions'
 import ProfileInfo from '../component/ProfileInfo'
-import ExchangeList from './ExchangeList';
+import ExchangeList from './ExchangeList'
+import DoneList from './DoneList'
 
 
 const Profile = () => {
@@ -13,9 +14,10 @@ const Profile = () => {
         <>
         <div style={profileStyle}>
             I am Profile page for {currentUser.username}
-        </div>
         <ProfileInfo />
         <ExchangeList />
+        <DoneList />
+        </div>
         </>
     )
 

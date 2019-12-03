@@ -42,7 +42,8 @@ export const addASkill = ( userSkillObj ) => dispatch => {
   fetch("http://localhost:3000/user_skills", object)
     .then(res => res.json())
     .then(data => {
-      // console.log("backend created new userskill,", data.user_skill)
+      // debugger
+      data.errors ? window.alert(data.errors) :
       dispatch(addSkill(data.user_skill)) })
 }
 
@@ -54,4 +55,24 @@ export const selectSkill = skillObj => ({
 
 export const selectASkill = (skillObj) => dispatch => {
   dispatch(selectSkill(skillObj))
+}
+
+// delete / cancel a review
+export const deleteSkill = (skillObj) => ({
+  type: 'DELETE_SKILL',
+  payload: skillObj
+})
+
+// remove / delete a review 
+export const deleteThisSkill = user_skill => dispatch => {
+  // debugger
+  let user_skill_id = user_skill.id
+  const object = {
+    method: 'DELETE'
+  }
+  fetch(`http://localhost:3000/user_skills/${user_skill_id}`, object)
+  .then(r => {
+    // debugger
+    dispatch(deleteSkill(user_skill))
+  })
 }

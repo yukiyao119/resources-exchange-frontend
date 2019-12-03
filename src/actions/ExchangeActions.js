@@ -22,7 +22,8 @@ export const loadAllExchanges = () => dispatch => {
   }
 }
 
-// select a exchanges 
+
+// select a exchange
 export const selectExchange = exchange => ({
   type: "SELECT_EXCHANGE",
   payload: exchange
@@ -32,7 +33,7 @@ export const selectAExchange = (exchange) => dispatch => {
   dispatch(selectExchange(exchange))
 }
 
-
+// delete / cancel an exchange
 export const cancelExchange = (exchangeObj) => ({
   type: 'CANCEL_EXCHANGE',
   payload: exchangeObj

@@ -1,20 +1,30 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import AddSkillForm from './AddSkillForm'
 import EditInfoForm from './EditInfoForm'
+import { deleteThisSkill } from '../actions/SkillActions'
 
 
 const ProfileInfo = () => {
-
+  const dispatch = useDispatch()
+  
   const currentUser = useSelector(state => state.currentUser)
-
-  const text = 
-  // currentUser.user_skills ? 
-    currentUser.user_skills.map(user_skill => {
-      return user_skill.skill.name ? (<li key={user_skill.id}>{user_skill.skill.name}</li>) : null
-    })
-
+  
   const { displayname, donated_hour, time_slot, location, image, bio } = currentUser
+
+  const handleRemove = (user_skill) => {
+    dispatch(deleteThisSkill(user_skill))
+  }
+  
+  const mySkillsText =  currentUser.user_skills.map(user_skill => {
+    return user_skill.skill.name ? (
+      <div>
+        <li key={user_skill.id}>{user_skill.skill.name}</li>
+        <button onClick={() =>handleRemove(user_skill)}>Remove</button>
+      </div>
+    ) : null
+  })
+
 
   return (
 
@@ -29,7 +39,7 @@ const ProfileInfo = () => {
         <h2>bio: {bio}</h2>
         <h2>My skills: </h2>
       </div>
-      <div>{text}</div>
+      <div>{mySkillsText}</div>
       <AddSkillForm />
       <EditInfoForm />
 

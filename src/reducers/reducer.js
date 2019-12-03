@@ -4,7 +4,8 @@ const defaultState = {
   allUsers: [],
   allExchanges: [],
   allSkills: [],
-  chosenSkill: {},
+  allReviews: [],
+  selectedReview: {},
   selectedExchange: {},
   selectedSkill: {},
   selectedUser: {}
@@ -28,6 +29,11 @@ const reducer = (state = defaultState, action) => {
         return {
           ...state,
           allSkills: action.payload
+        }
+      case 'LOAD_REVIEWS':
+        return {
+          ...state,
+          allReviews: action.payload
         }
       case 'ADD_USER':
         return {
@@ -60,11 +66,24 @@ const reducer = (state = defaultState, action) => {
             user_skills: state.currentUser.user_skills.concat(action.payload)
           }
         }
-      case 'SELECT_EXCHANGE':
+      case 'SELECT_SKILL':
         return {
           ...state,
-          selectedExchange: action.payload
+          selectedSkill: action.payload
         }
+      case 'DELETE_SKILL':
+          return {
+            ...state,
+            currentUser: {
+              user_skills: [...state.currentUser.user_skills].filter(user_skill => user_skill !== action.payload)
+            },
+            selectedSkill: {}
+          }
+      case 'SELECT_EXCHANGE':
+          return {
+            ...state,
+            selectedExchange: action.payload
+          }
       case 'CANCEL_EXCHANGE':
         return {
           ...state,
@@ -72,19 +91,26 @@ const reducer = (state = defaultState, action) => {
           selectedExchange: {}
         }
       case 'ADD_EXCHANGE':
-          return {
-            ...state,
-            allExchanges: [ ...state.allExchanges, action.user]
-          }
-      case 'SELECT_SKILL':
         return {
           ...state,
-          selectedSkill: action.payload
+          allExchanges: [ ...state.allExchanges, action.payload]
         }
-      // case 'NEW_EXCHANGE':
-      //   return {
-
-      //   }
+      case 'ADD_REVIEW':
+        return {
+          ...state,
+          allReviews: [ ...state.allReviews, action.payload]
+        }
+      case 'SELECT_REVIEW':
+          return {
+            ...state,
+            selectedReview: action.payload
+          }
+      case 'DELETE_REVIEW':
+        return {
+          ...state,
+          allReviews: [...state.allReviews].filter(review => review !== action.payload),
+          selectedReview: {}
+        }
       default: 
         return state
     }

@@ -61,7 +61,7 @@ const NewExchangeForm = () => {
       </select>
 
       Time:  
-      <input type="text" name="time" value={time} onChange={handleChange} placeholder="2019-12-01 18:00:00" /><br /><br />
+      <input type="datetime-local" name="time" value={time} onChange={handleChange} placeholder="2019-12-01 18:00:00" /><br /><br />
 
       Location: 
       <input type="text" name="location" value={location} onChange={handleChange} placeholder="Online/Address" /><br /><br />

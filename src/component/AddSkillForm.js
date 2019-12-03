@@ -11,8 +11,8 @@ const AddSkillForm = () => {
 
   const [skillForm, setSkillForm] = useState({
     user_id: currentUser.id,
-    skill_id: allSkills[0].id,
-    name: allSkills[0].name
+    skill_id: null,
+    name: ""
   })
 
   const handleOnChange = e => {

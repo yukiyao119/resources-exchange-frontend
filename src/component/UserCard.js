@@ -9,7 +9,6 @@ const UserCard = (props) => {
   const dispatch = useDispatch()
 
   const { displayname, bio, donated_hour, img, location, time_slot} = props.user
-
   // console.log("selected user", selectedUser)
   
   const [newXStatus, setnewXStatus] = useState({
