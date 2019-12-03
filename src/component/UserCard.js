@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { selectAUser } from '../actions/UserActions'
 import NewExchangeForm from './NewExchangeForm'
 
@@ -28,7 +28,8 @@ const UserCard = (props) => {
     <div style={userCardStyle}>
       {displayname}
       <br />
-      {img}
+      <img src="./alpaca.jpg"/>
+      {/* {img} */}
       <br />
       {bio}
       <br />

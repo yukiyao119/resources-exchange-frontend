@@ -8,11 +8,13 @@ import Nav from './component/Nav'
 import Login from './component/Login'
 import Signup from './component/Signup'
 import Profile from './container/Profile'
+import Find from './container/Find'
 
 import { getProfileFetch } from './actions/UserActions'
 import { loadAllSkills } from './actions/SkillActions'
 import { loadAllExchanges } from './actions/ExchangeActions'
 import { loadAllReviews } from './actions/ReviewActions'
+import { loadAllUsers } from './actions/UserActions'
 
  const App = () => {
 
@@ -24,6 +26,7 @@ import { loadAllReviews } from './actions/ReviewActions'
     dispatch(loadAllSkills())
     dispatch(loadAllExchanges())
     dispatch(loadAllReviews())
+    dispatch(loadAllUsers())
    }, [dispatch])
 
   console.log("currentUser", currentUser);
@@ -38,6 +41,7 @@ import { loadAllReviews } from './actions/ReviewActions'
       {Object.keys(currentUser).length > 0 ? 
       <>
         <Route path="/profile" component={Profile}/>
+        <Route path="/find" component={Find}/>
         <Route exact path="/" component={Home}/>
       </>
       : 

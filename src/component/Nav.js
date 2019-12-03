@@ -13,9 +13,10 @@ const Nav = () => {
   return (
     <nav style={navStyle}>
       <Link to="/">Home</Link>
+      <Link to="/find">Find nearby</Link>
+      <Link to="/profile">Profile</Link>
       <Link to="/signup">Signup</Link>
       <Link to="/login">Login</Link>
-      <Link to="/profile">Profile</Link>
       <Link to="/" onClick={handleLogout}>
         Logout
       </Link>

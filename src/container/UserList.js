@@ -28,6 +28,8 @@ const UserList = () => {
     // console.log("check includes", checkIncludes(user.user_skills, skill))
     if ( checkIncludes(user.user_skills, skill) ) {
       return user
+    } else {
+      return null
     }
   })
   console.log("filtered users", filteredUsers);

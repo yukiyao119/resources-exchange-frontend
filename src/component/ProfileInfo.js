@@ -18,7 +18,7 @@ const ProfileInfo = () => {
   
   const mySkillsText =  currentUser.user_skills.map(user_skill => {
     return user_skill.skill.name ? (
-      <div>
+      <div key={user_skill.id}>
         <li key={user_skill.id}>{user_skill.skill.name}</li>
         <button onClick={() =>handleRemove(user_skill)}>Remove</button>
       </div>
@@ -35,7 +35,8 @@ const ProfileInfo = () => {
         <h2>Donated hours: {donated_hour}</h2>
         <h2>Time slot: {time_slot}</h2>
         <h2>Location: {location}</h2>
-        <h2>Image: {image}</h2>
+        <h2>Image: <br/>
+          <img src="./alpaca.jpg"/></h2>
         <h2>bio: {bio}</h2>
         <h2>My skills: </h2>
       </div>

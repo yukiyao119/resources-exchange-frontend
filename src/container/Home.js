@@ -1,13 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector,useDispatch } from 'react-redux'
-import { loadAllUsers } from '../actions/UserActions'
+import React from 'react';
+import { useSelector } from 'react-redux'
 import Skillboard from './Skillboard'
 
 
 const Home = () => {
 
-  const dispatch = useDispatch()
-  useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
+  // const dispatch = useDispatch()
+  // useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
   
   const currentUser = useSelector(state => state.currentUser)
   
