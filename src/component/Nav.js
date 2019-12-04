@@ -1,27 +1,34 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
 
 const Nav = () => {
   const dispatch = useDispatch()
+  const loggedIn = useSelector(state => state.loggedIn)
 
   const handleLogout = () => {
     dispatch(logoutUser())
   }
   
   return (
-    <nav style={navStyle}>
-      <Link to="/">Home</Link>
-      <Link to="/find">Find nearby</Link>
-      <Link to="/profile">Profile</Link>
-      <Link to="/signup">Signup</Link>
-      <Link to="/login">Login</Link>
-      <Link to="/" onClick={handleLogout}>
-        Logout
-      </Link>
-      
-    </nav>
+    <>
+      { loggedIn ? 
+      <nav style={navStyle}>
+        <Link to="/">Home</Link>
+        <Link to="/find">Find nearby</Link>
+        <Link to="/profile">Profile</Link>
+        <Link to="/" onClick={handleLogout}>
+          Logout
+        </Link>
+      </nav>
+      :
+      <nav style={navStyle}>
+        <Link to="/signup">Signup</Link>
+        <Link to="/login">Login</Link>
+      </nav>
+      }
+    </>
   )
 }
 

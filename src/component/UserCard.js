@@ -28,8 +28,7 @@ const UserCard = (props) => {
     <div style={userCardStyle}>
       {displayname}
       <br />
-      <img src="./alpaca.jpg"/>
-      {/* {img} */}
+      <img src="./alpaca.jpg" alt="profilePic"/>
       <br />
       {bio}
       <br />

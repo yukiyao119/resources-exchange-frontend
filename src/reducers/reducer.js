@@ -1,6 +1,7 @@
 
 const defaultState = {
   currentUser: {},
+  loggedIn: false,
   allUsers: [],
   allExchanges: [],
   allSkills: [],
@@ -35,11 +36,11 @@ const reducer = (state = defaultState, action) => {
           ...state,
           allReviews: action.payload
         }
-      case 'ADD_USER':
-        return {
-          ...state,
-          allUsers: [ ...state.allUsers, action.user]
-        }
+      // case 'ADD_USER':
+      //   return {
+      //     ...state,
+      //     allUsers: [ ...state.allUsers, action.user]
+      //   }
       case 'EDIT_PROFILE':
         return {
           ...state,
@@ -48,11 +49,12 @@ const reducer = (state = defaultState, action) => {
       case 'LOGIN_USER':
         return {
           ...state,
-          currentUser: action.payload
+          currentUser: action.payload,
+          loggedIn: true
         }
       case 'LOGOUT_USER':
         return {
-          ...state, currentUser: {} 
+          ...state, currentUser: {}, loggedIn: false 
         }
       case 'SELECT_USER':
           return {

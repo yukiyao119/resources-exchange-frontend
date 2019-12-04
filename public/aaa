@@ -1,0 +1,11 @@
+Frontend:
+npm install react-actioncable-provider --save
+
+wrap actioncable component with url="ws://localhost3000/cable" in app.js
+
+in channelCable.js:
+return 
+<ActionCableConsumer 
+    channel ={ {channel: "messageChannel", exchange_id: exchange.id}}
+    onReceived={ console.log }
+/>

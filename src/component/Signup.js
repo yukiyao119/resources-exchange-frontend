@@ -7,9 +7,7 @@ const Signup = props => {
 
   const [signupForm, setSignupForm] = useState({
     username: '',
-    password: '',
-    img: '',
-    bio: ''
+    password: ''
   })
 
   // Controlled form functions
@@ -23,7 +21,7 @@ const Signup = props => {
   }
 
   // Destructuring keys from our local state to use in the form
-  const { username, password, img, bio } = signupForm
+  const { username, password } = signupForm
 
   // Component code
   return (
@@ -43,7 +41,7 @@ const Signup = props => {
         onChange={handleChange}
         placeholder="Password"
       />
-
+{/* 
       <input
         type="text"
         name="img"
@@ -58,7 +56,7 @@ const Signup = props => {
         value={bio}
         onChange={handleChange}
         placeholder="Bio"
-      />
+      /> */}
       <input type="submit" />
     </form>
   )

@@ -12,7 +12,7 @@ const Home = () => {
   
   const text = currentUser.username ? <h1>{currentUser.username} is currently logged in</h1>
     : <h1>Pls log in</h1>
-
+ 
   return (
     <React.Fragment >
       <div style={homeStyle} > 
@@ -25,7 +25,7 @@ const Home = () => {
 }
 
 const homeStyle = {
-  border: "1px purple solid"
+  border: "2px purple solid"
 }
 
 export default Home

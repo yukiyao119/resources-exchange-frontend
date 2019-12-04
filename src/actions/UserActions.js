@@ -122,7 +122,7 @@ export const editProfileInfo = (user, user_id) => dispatch => {
     .then(resp => resp.json())
     .then(data => {
       // debugger
-      dispatch(editProfile(data))
+      dispatch(editProfile(data.user))
     })
   }
 }

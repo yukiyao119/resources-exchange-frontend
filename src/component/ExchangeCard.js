@@ -29,19 +29,19 @@ const ExchangeCard = () => {
 
         <p>Rule: If you can not make the Xchange, please cancel before the xchange time.</p><br />
 
-        Description: {`${exchanger.user.displayname}'s ${exchanger.skill} exchanges ${exchangee.user.displayname}'s ${exchangee.skill}!!` }<br />
+        Description: {`${exchanger.user.username}'s ${exchanger.skill} exchanges ${exchangee.user.displayname}'s ${exchangee.skill}!!` }<br />
 
         Time: {formattedTime}<br /><br />
 
         Location: {location}<br /><br />
 
         Requester Info:<br />z
-        Name: {exchanger.user.displayname}<br />
+        Name: {exchanger.user.username}<br />
         Providing skill: {exchanger.skill}<br />
         Donated hour: {exchanger.user.donated_hour}<br /><br />
 
         Provider Info:<br />
-        Name: {exchangee.user.displayname}<br />
+        Name: {exchangee.user.username}<br />
         Providing skill: {exchangee.skill}<br />
         Donated hour: {exchangee.user.donated_hour}<br /><br />
         

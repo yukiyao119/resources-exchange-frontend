@@ -69,7 +69,7 @@ export const addAnExchange = (exchangeObj) => dispatch => {
   fetch("http://localhost:3000/exchanges", object)
     .then(res => res.json())
     .then(data => {
-      debugger
+      // debugger
       // console.log("backend created new exchange", data)
       dispatch(addExchange(data))
     })

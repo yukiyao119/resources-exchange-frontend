@@ -20,16 +20,18 @@ import { loadAllUsers } from './actions/UserActions'
 
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
-
+  const allSkills = useSelector(state => state.allSkills)
+  const loggedIn = useSelector(state => state.loggedIn)
+  
   useEffect(() => { 
     dispatch(getProfileFetch()) 
     dispatch(loadAllSkills())
     dispatch(loadAllExchanges())
     dispatch(loadAllReviews())
     dispatch(loadAllUsers())
-   }, [dispatch])
+   }, [loggedIn, dispatch])
 
-  console.log("currentUser", currentUser);
+  console.log("currentUser", currentUser, "allSkills", allSkills);
   
   
   return (

@@ -26,12 +26,12 @@ const ExchangeList = () => {
   
   const myExchangesText = myExchanges.length === 0 ? (<h4>No coming exchanges yet</h4>) : myExchanges.map(exchange => (
   <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-    {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill} requested...`}
+    {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} requested...`}
   </li>))
 
   const myProvidingText = myProviding.length === 0 ? (<h4>No coming providing exchanges</h4>) : myProviding.map(exchange => (
   <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-    {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill} requested...`}
+    {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} requested...`}
   </li>))
 
   return (

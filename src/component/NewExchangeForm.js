@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAnExchange } from '../actions/ExchangeActions'
+import { selectASkill } from '../actions/SkillActions'
 
 const NewExchangeForm = () => {
   const dispatch = useDispatch()
@@ -12,6 +13,8 @@ const NewExchangeForm = () => {
   
   const myUserSkills = currentUser.user_skills
   const theOtherUserSkills = selectedUser.user_skills
+  console.log("theOtherUserSkills", theOtherUserSkills);
+  
 
   const [exchangeForm, setExchangeForm] = useState({
     exchanger_id: myUserSkills[0].id,
@@ -33,6 +36,7 @@ const NewExchangeForm = () => {
       ...exchangeForm,
       exchangee_id: theOtherUserSkills[e.target.value].id
     })
+    dispatch(selectASkill(theOtherUserSkills[e.target.value]))
   }
 
   const handleChange = (e) => {
@@ -42,6 +46,7 @@ const NewExchangeForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(addAnExchange(exchangeForm))
+    window.alert("New Exchange requested. Go to Profile to check it out!")
   }
 
 

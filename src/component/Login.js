@@ -16,8 +16,8 @@ const Login = props => {
   const logInSubmitted = e => {
     e.preventDefault()
     dispatch(userLoginFetch(loginForm))
-    props.history.push('/')
-  };
+    props.history.push('/profile')
+  }
 
   const onChange = e =>
     setLoginForm({ ...loginForm, [e.target.name]: e.target.value })
