@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
+import '../nav.css'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -13,30 +14,65 @@ const Nav = () => {
   
   return (
     <>
-      { loggedIn ? 
-      <nav style={navStyle}>
-        <Link to="/">Home</Link>
-        <Link to="/find">Find nearby</Link>
-        <Link to="/profile">Profile</Link>
-        <Link to="/" onClick={handleLogout}>
-          Logout
-        </Link>
-      </nav>
-      :
-      <nav style={navStyle}>
-        <Link to="/signup">Signup</Link>
-        <Link to="/login">Login</Link>
-      </nav>
-      }
+      
+    { loggedIn ? 
+    <>
+      <div className="pusher">
+        <div className="ui inverted vertical masthead center aligned segment">
+          <div className="ui container">
+            <div className="ui large secondary inverted pointing menu">
+              <Link to="/" className="toc item">
+                <i className="sidebar icon"></i>
+              </Link>
+              <Link to="/" className="item">Home</Link>
+              <Link to="/find" className="item">Find nearby</Link>
+              <Link to="/profile" className="item">Profile</Link>
+              <Link to="/" onClick={handleLogout} className="item">
+                Logout
+              </Link>
+            </div>
+          </div>
+        
+          
+          <div className="ui text container">
+            <h1 className="ui inverted header">
+              Resources Xchange
+            </h1>
+            <h2>Learn new skills another way.</h2>
+            {/* <div className="ui huge primary button">Get Started <i className="right arrow icon"></i></div> */}
+          </div>
+
+        </div>
+      </div>
+    </>
+
+    :
+    
+    <>
+      <div className="pusher">
+        <div className="ui inverted vertical masthead center aligned segment">
+          <div className="ui container">
+            <div className="ui large secondary inverted pointing menu">
+              <div className="right item">
+                <Link to="/signup" className="ui inverted button">Signup</Link>
+                <Link to="/login" className="ui inverted button">Login</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+    }
+
     </>
   )
 }
 
-const navStyle = {
-  border: "1px grey solid",
-  display: "flex",
-  justifyContent: "space-evenly"
-}
+// const navStyle = {
+//   border: "1px grey solid",
+//   display: "flex",
+//   justifyContent: "space-evenly"
+// }
 
 export default Nav;
 

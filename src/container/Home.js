@@ -15,6 +15,7 @@ const Home = () => {
  
   return (
     <React.Fragment >
+
       <div style={homeStyle} > 
         <div>{text}</div>
         <Skillboard />
