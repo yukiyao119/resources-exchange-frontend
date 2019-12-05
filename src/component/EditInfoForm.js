@@ -30,11 +30,12 @@ const EditInfoForm = () => {
 
   return (
 
-    <div >
-      <h2>Edit Your Info here!</h2>
-      <Form onSubmit={handleSubmit} size="small">
-        Display Name: <input type="text" name="displayname" value={displayname} onChange={handleChange} placeholder="Display Name" /><br /><br />
-        
+    <div style={editFormStyle}>
+      <h2 className="ui center aligned header purple">Edit Your Info here!</h2>
+      <Form  onSubmit={handleSubmit}>
+        Display Name: <br/>
+        <input type="text" name="displayname" value={displayname} onChange={handleChange} placeholder="Display Name" /><br /><br />
+
         Image: <input type="text" name="img" value={img} onChange={handleChange} placeholder="Image URL" /><br /><br />
         
         Bio: <textarea type="text" name="bio" value={bio} onChange={handleChange} placeholder="Bio" /><br /><br />
@@ -50,6 +51,10 @@ const EditInfoForm = () => {
   )
 }
 
+const editFormStyle={
+  height: "500px",
+  overflow: "scroll"
+}
 const infoStyle = {
   border: "1px cyan solid"
 }

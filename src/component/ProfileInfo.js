@@ -20,9 +20,13 @@ const ProfileInfo = () => {
   const mySkillsText = currentUser.user_skills ? currentUser.user_skills.map(user_skill => {
     return user_skill.skill.name ? (
       <div key={user_skill.id}>
-        <li key={user_skill.id}>{user_skill.skill.name}</li>
-        <Button basic onClick={() =>handleRemove(user_skill)}
-        size='mini' >Remove</Button>
+        <li key={user_skill.id} style={{fontSize: "1.5em"}}>
+          {user_skill.skill.name}
+          <Button basic circular onClick={() =>handleRemove(user_skill)} icon='delete' size='mini'></Button>
+        </li>
+        {/* <Button basic onClick={() =>handleRemove(user_skill)}
+        size='mini' >Remove</Button> */}
+        
       </div>
     ) : null
   })
@@ -31,14 +35,13 @@ const ProfileInfo = () => {
 
   return (
   <Container>
-    <Segment vertical>
-    <Grid columns={3} divided>
-
+    <Segment vertical >
+    <Grid verticalAlign='middle' columns='equal'>
+    <Grid.Row clolumns={3}>
       <Grid.Column width={5}>
         {/* <Grid.Row  */}
         <div>
           <Card>
-
             <Image src='/alpaca.jpg' wrapped ui={false} />
             <Card.Content>
               <Card.Header>Name: {displayname}</Card.Header>
@@ -51,34 +54,32 @@ const ProfileInfo = () => {
                 Time slot: {time_slot}<br />
               </Card.Description>
             </Card.Content>
-        
-            {/* <Card.Content extra>
-              <Icon name='user' />
-              My skills: {mySkillsText}
-            </Card.Content> */}
-
           </Card>
         </div>
       </Grid.Column>
 
 
-      <Grid.Column width={5}>
+      <Grid.Column width={5} >
         <Segment>
-          <Icon name='user' />
-          My skills: <br />
-          {mySkillsText}
-        </Segment>
-
-        <Segment> 
+          <Icon name='user' size='large'/>
+          <h2 className="ui header purple">My skills: </h2>
+          {mySkillsText}<br /><br /><br />
           <AddSkillForm />
         </Segment>
+
+        {/* <Segment> 
+          <AddSkillForm />
+        </Segment> */}
       </Grid.Column>
 
-      <Grid.Column width={5}>
-        <Segment>
+
+      <Grid.Column width={6}>
+        <Segment compact stretched >
           <EditInfoForm />
         </Segment>
       </Grid.Column>
+
+      </Grid.Row>
 
     </Grid>
     </Segment>
@@ -89,6 +90,15 @@ const ProfileInfo = () => {
 
 const infoStyle = {
   border: "3px orange solid"
+}
+
+const segmentStyle = {
+  display: "flex",
+  justifyContent: "space-between"
+}
+
+const editFormStyle={
+  height: "100%"
 }
 
 export default ProfileInfo

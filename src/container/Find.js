@@ -102,7 +102,7 @@ function Map() {
 
       { newXStatus.newX === true ? 
 
-        <NewExchangeForm selectedUser={selectedUser}/>
+      <NewExchangeForm selectedUser={selectedUser}/>
 
       : null}
     

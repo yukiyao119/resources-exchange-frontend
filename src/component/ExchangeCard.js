@@ -26,7 +26,7 @@ const ExchangeCard = () => {
   return (
     <React.Fragment>
       {/* style={{ padding: '8em 0em' }} */}
-    <Segment>
+    <Segment style={{ margin: '0' }}>
       {/* <Container text> */}
       <div>
         <h3>Congrats! Your Xchange!</h3>
@@ -37,7 +37,7 @@ const ExchangeCard = () => {
 
         <strong>Time: </strong> {formattedTime}<br />
 
-        <strong>Location: </strong>{location}<br />
+        <strong>Location: </strong>{location}<br /><br />
 
         <strong>
         Requester Info:</strong><br />

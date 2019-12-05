@@ -20,14 +20,12 @@ const Profile = () => {
         </Container>
 
         <Container >
-        {/* <div className="ui padded equal width grid"> */}
-            {/* <div className="eight wide column"> */}
+            <div style={segmentStyle}>
                 <ExchangeList />
-            {/* </div> */}
-            {/* <div className="eight wide column"> */}
+            </div>
+            <div style={segmentStyle}>
                 <DoneList />
-            {/* </div> */}
-        {/* </div> */}
+            </div>
         </Container>
 
         </Container>
@@ -35,6 +33,12 @@ const Profile = () => {
     )
 
 }
+
+const segmentStyle = {
+    margin: '10px',
+    display: "flex",
+    justifyContent: "center"
+  }
 
 const profileStyle = {
     border: "1px blue solid"
