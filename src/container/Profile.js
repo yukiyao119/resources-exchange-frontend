@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import ProfileInfo from '../component/ProfileInfo'
 import ExchangeList from './ExchangeList'
 import DoneList from './DoneList'
+import { Segment, Grid, Form, Button, Container } from 'semantic-ui-react'
 
 
 const Profile = () => {
@@ -12,12 +13,24 @@ const Profile = () => {
     
     return (
         <>
-        <div style={profileStyle}>
-            I am Profile page for {currentUser.username}
-        <ProfileInfo />
-        <ExchangeList />
-        <DoneList />
-        </div>
+        <Container>
+
+        <Container >
+            <ProfileInfo />
+        </Container>
+
+        <Container >
+        {/* <div className="ui padded equal width grid"> */}
+            {/* <div className="eight wide column"> */}
+                <ExchangeList />
+            {/* </div> */}
+            {/* <div className="eight wide column"> */}
+                <DoneList />
+            {/* </div> */}
+        {/* </div> */}
+        </Container>
+
+        </Container>
         </>
     )
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { userLoginFetch } from '../actions/UserActions';
+import { Link } from 'react-router-dom'
+import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
 const Login = props => {
 
@@ -27,24 +29,41 @@ const Login = props => {
 
   // Component code
   return (
-    <div style={formStyle}>
-        <h1>Log in pls!</h1>
-        <form onSubmit={logInSubmitted}>
-          <input
-            type="text"
+
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='teal' textAlign='center'>
+          <Image src='/xxx.png' /> Log-in to your account
+        </Header>
+        <Form size='large' onSubmit={logInSubmitted}>
+          <Segment stacked>
+            <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' 
             onChange={onChange}
             name="username"
-            value={username}
-          />
-          <input
-            type="password"
-            onChange={onChange}
-            name="password"
-            value={password}
-          />
-          <input type="submit" />
-        </form>
-      </div>
+            value={username}/>
+            <Form.Input
+              fluid
+              icon='lock'
+              iconPosition='left'
+              placeholder='Password'
+              type='password'
+              onChange={onChange}
+              name="password"
+              value={password}
+            />
+
+            <Button color='teal' fluid size='large' type="submit">
+              Login
+            </Button>
+          </Segment>
+        </Form>
+        <Message>
+          New to us? 
+          <Link to="/signup" className="ui button">Signup</Link>
+        </Message>
+      </Grid.Column>
+    </Grid>
+
   )
 }
 

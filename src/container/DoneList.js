@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as moment from 'moment';
 import { selectAExchange } from '../actions/ExchangeActions'
 import ExchangeCard from '../component/ExchangeCard'
+import { Header, Segment } from 'semantic-ui-react';
 
 const DoneList = () => {
 
@@ -25,7 +26,7 @@ const DoneList = () => {
 
   const myExchangesText = myExchanges.length === 0 ? (<h4>No coming exchanges yet</h4>) : myExchanges.map(exchange => (
     <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-      {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill} requested...`}
+      {`My ${exchange.exchanger.skill} requested...`}
     </li>))
 
   const myProvidingText = myProviding.length === 0 ? (<h4>No coming providing exchanges</h4>) : myProviding.map(exchange => (
@@ -36,11 +37,17 @@ const DoneList = () => {
   return (
 
     <React.Fragment>
-    <div style={xChgStyle}>
-      <h2>History Exchanges</h2><br /><br />
-      <div>Past Exchanges that I requested: {myExchangesText}</div><br /><br />
-      <div>Exchanges that I provided: {myProvidingText}</div><br /><br />
-    </div>
+    <Segment>
+      <h2 style={{ fontSize: '2em' }}>History Exchanges</h2>
+      <Header as='h2' >
+        Past Exchanges that I requested:
+      </Header>
+      <div> {myExchangesText}</div><br />
+      <Header as='h2' >
+        Exchanges that I provided:
+      </Header>
+      <div> {myProvidingText}</div><br />
+    </Segment>
 
     {now.isAfter(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null}
     </React.Fragment>

@@ -4,6 +4,7 @@ import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "reac
 import NewExchangeForm from '../component/NewExchangeForm'
 import mapStyles from "../mapStyles"
 import { selectAUser } from '../actions/UserActions'
+import { Grid, Container } from "semantic-ui-react"
 
 function Map() {
 
@@ -55,7 +56,8 @@ function Map() {
 
 
   return (
-    <React.Fragment>
+<Container>
+
     <GoogleMap
       defaultZoom={10}
       defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
@@ -84,24 +86,32 @@ function Map() {
             lng: parseFloat(localSelectedUser.lng)
           }}
         >
-          <div>
-            <h2>{localSelectedUser.displayname}</h2>
+          <div style={{ width: "20vw", height: "40vh" }}>
+            <h4>{localSelectedUser.displayname}</h4>
             <p>Bio: {localSelectedUser.bio}</p>
             <p>Donated_hour: {localSelectedUser.donated_hour}</p>
             <p>Location: {localSelectedUser.location}</p>
             <p>Open time: {localSelectedUser.time_slot}</p>
-            <li>Skills: {localSelectedUser.user_skills.map(user_skill => { return <p>{user_skill.skill.name}</p>} )}</li>
-            <br /><br />
+            <li><strong>Skills: </strong>{localSelectedUser.user_skills.map(user_skill => { return <p>{user_skill.skill.name}</p>} )}</li>
+            <br />
             <button onClick={()=> handleShowForm(localSelectedUser)}>Request an Xchange!</button>
           </div>
         </InfoWindow>
       )}
-    </GoogleMap>
+    </GoogleMap>    
 
-    { newXStatus.newX === true ? <NewExchangeForm selectedUser={selectedUser}/> : null}
+      { newXStatus.newX === true ? 
+
+        <NewExchangeForm selectedUser={selectedUser}/>
+
+      : null}
     
-    </React.Fragment>
+  </Container>
+
   )
+}
+const profileStyle = {
+  border: "1px blue solid"
 }
 
 const MapWrapped = withScriptjs(withGoogleMap(Map))
@@ -111,7 +121,7 @@ export default function Find() {
 
   return (
     <>
-    <div style={{ width: "70vw", height: "70vh" }}>
+    <div style={{ width: "100vw", height: "100vh", border: "1px blue solid" }}>
       <MapWrapped
         googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
           process.env.REACT_APP_GOOGLE_API_KEY

@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editProfileInfo } from '../actions/UserActions'
+import { Form } from "semantic-ui-react";
 
 const EditInfoForm = () => {
 
@@ -29,9 +30,9 @@ const EditInfoForm = () => {
 
   return (
 
-    <div style={infoStyle}>
+    <div >
       <h2>Edit Your Info here!</h2>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={handleSubmit} size="small">
         Display Name: <input type="text" name="displayname" value={displayname} onChange={handleChange} placeholder="Display Name" /><br /><br />
         
         Image: <input type="text" name="img" value={img} onChange={handleChange} placeholder="Image URL" /><br /><br />
@@ -43,7 +44,7 @@ const EditInfoForm = () => {
         Time slot:  <input type="text" name="time_slot" value={time_slot} onChange={handleChange} placeholder="Weekend/Weekday after work" /><br /><br />
         
         <input type="submit" />
-      </form>
+      </Form>
     </div>
 
   )

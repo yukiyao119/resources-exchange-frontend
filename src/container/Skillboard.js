@@ -4,6 +4,7 @@ import SkillCard from '../component/SkillCard'
 import { selectASkill } from '../actions/SkillActions'
 import UserList from '../container/UserList'
 import SearchBar from '../component/SearchBar'
+import { Container, Grid, Image, Header } from 'semantic-ui-react'
 
 const Skillboard = () => {
 
@@ -33,31 +34,42 @@ const Skillboard = () => {
   const skillItems = 
   searchedSkills.length===0 ? allSkills : 
   searchedSkills.map(skill => (
-  <SkillCard key={skill.id} 
-  skill={skill} 
-  handleClickSkill={() => handleClickSkill(skill) }
-  />))
+
+        <SkillCard key={skill.id} 
+        skill={skill} 
+        handleClickSkill={() => handleClickSkill(skill) }
+        />
+
+  ))
 
   console.log("skillItems", skillItems);
   
 
   return (
     <React.Fragment>
-      <div style={boardStyle}>
-        <SearchBar handleSearch={handleSearch}/>
-      </div>
-      <h1>Skill Board </h1><br />
+      <SearchBar handleSearch={handleSearch}/>
+      <Container>
+        <br/>
+        <Header as="h1">Skill Board</Header>
+        <Grid divided='vertically'>
         {skillItems}
-      <div>
-        {Object.keys(selectedSkill).length>0 ? <UserList /> : null}
+        </Grid>
+
+        {Object.keys(selectedSkill).length>0 ? 
+        <Grid>
+          <UserList /> 
+        </Grid>
+        : null}
         <br />
-      </div>
+        
+
+      </Container>
     </React.Fragment>
   )
 }
 
-const boardStyle = {
-  border: "3px blue solid"
-}
+// const boardStyle = {
+//   border: "3px blue solid"
+// }
 
 export default Skillboard

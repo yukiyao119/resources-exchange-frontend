@@ -1,80 +1,62 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import Skillboard from './Skillboard'
+import { Header } from 'semantic-ui-react'
 
 
-const Home = () => {
+const Home = ({ mobile }) => {
 
   // const dispatch = useDispatch()
   // useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
   
-  const currentUser = useSelector(state => state.currentUser)
+  const headerH1 = {
+    fontSize: mobile ? '2em' : '4em',
+    fontWeight: 'normal',
+    marginBottom: 0,
+    marginTop: mobile ? '1.5em' : '3em',
+  }
   
-  const text = currentUser.username ? <h1>{currentUser.username} is currently logged in</h1>
-    : <h1>Pls log in</h1>
- 
+  const headerH2 = {
+    fontSize: mobile ? '1.5em' : '1.7em',
+    fontWeight: 'normal',
+    marginTop: mobile ? '0.5em' : '1.5em',
+  }
+
+
   return (
     <React.Fragment >
-
-      <div style={homeStyle} > 
-        <div>{text}</div>
-        <Skillboard />
+      <div style={homeStyle}>
+        <Header
+          as='h1'
+          content='Resources Xchange'
+          inverted
+          textAlign='center'
+          style={headerH1}
+        />
+        <Header
+          as='h2'
+          content='Learn new skills another way.'
+          inverted
+          textAlign='center'
+          style={headerH2}
+        />
       </div>
+      <Skillboard />
     </React.Fragment>
   )
+
 
 }
 
 const homeStyle = {
-  border: "2px purple solid"
+  display: "inline-block",
+  width: "100%",
+  height: "600px",
+  backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+  backgroundSize: 'cover',
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat"
 }
 
 export default Home
 
-
-
-// import React, { Component } from "react";
-// import { connect } from 'react-redux';
-// import { getProfileFetch, loginUser } from '../actions'
-
-// class Home extends Component {
-
-//   componentDidMount(){
-//     // console.log(this.props.loadCats)
-//     this.props.getProfileFetch()
-//   }
-
-//   render() {
-//     // debugger
-//     return (
-      
-//         this.props.currentUser === undefined ? 
-//         <div>Please Log in</div>
-//         :
-//         <div style={bodyStyle}>
-//           <h1>Home Page. Welcome {this.props.currentUser.username}</h1>
-//         </div>
-//         // 
-//     )
-//   }
-// }
-
-// const bodyStyle = {
-//   border: "2px pink solid"
-// }
-
-//       // <ul className="skill-container">
-//       //   {
-//       //     this.props.allSkills.map(skill => <Skill key={ skill.id } skill={ skill } />)
-//       //   }
-//       // </ul>
-
-// const mapStateToProps = state => {
-//   return {
-//     currentUser: state.currentUser,
-//     allSkills: state.allSkills
-//   }
-// }
-
-
-// export default connect(mapStateToProps, { getProfileFetch, loginUser })(Home)

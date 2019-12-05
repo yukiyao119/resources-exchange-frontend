@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import UserCard from '../component/UserCard'
-
+import { Container, Grid, Header } from 'semantic-ui-react'
 
 const UserList = () => {
 
@@ -40,10 +40,13 @@ const UserList = () => {
 
   return (
 
-    <div style={userListStyle}>
-      <h3>User List area, All users that have this skill. </h3>
-      {userItems}
-    </div>
+    <Container>
+      <br/>
+      <Header as="h1">Available Users</Header>
+      <Grid >
+        {userItems}
+      </Grid>
+    </Container>
     
   )
 }

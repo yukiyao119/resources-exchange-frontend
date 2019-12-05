@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { selectAExchange } from '../actions/ExchangeActions'
 import ExchangeCard from '../component/ExchangeCard'
 import * as moment from 'moment';
+import { Header, Segment } from "semantic-ui-react";
 
 const ExchangeList = () => {
 
@@ -24,24 +25,34 @@ const ExchangeList = () => {
     dispatch(selectAExchange(exchangeObj))
   }
   
-  const myExchangesText = myExchanges.length === 0 ? (<h4>No coming exchanges yet</h4>) : myExchanges.map(exchange => (
+  const myExchangesText = myExchanges.length === 0 ? (<p>No coming exchanges yet</p>) : myExchanges.map(exchange => (
   <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-    {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} requested...`}
+    {`My ${exchange.exchanger.skill} requested...`}
   </li>))
 
-  const myProvidingText = myProviding.length === 0 ? (<h4>No coming providing exchanges</h4>) : myProviding.map(exchange => (
+  const myProvidingText = myProviding.length === 0 ? (<p>No coming providing exchanges</p>) : myProviding.map(exchange => (
   <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
     {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} requested...`}
   </li>))
 
   return (
     <React.Fragment>
-      <div style={xChgStyle}>
-        <h2>Coming Exchanges List</h2><br /><br />
-        <div>Exchanges that I requested: {myExchangesText}</div><br /><br />
-        <div>Exchanges that I will provide: {myProvidingText}</div><br /><br />
-      </div>
+      <Segment>
+        <Header as='h2' style={{ fontSize: '2em' }}>
+        Coming Exchanges List
+        </Header>
+        <Header as='h2' >
+          Exchanges that I requested:
+        </Header>
+          <div>{myExchangesText}</div><br />
+        <Header as='h2' >
+          Exchanges that I will provide:
+        </Header>
+          <div>{myProvidingText}</div><br />
+      </Segment>
+
       {now.isBefore(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null}
+      
     </React.Fragment>
   )
 

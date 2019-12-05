@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import '../nav.css'
+import { Segment, Container, Menu } from 'semantic-ui-react'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -17,32 +17,20 @@ const Nav = () => {
       
     { loggedIn ? 
     <>
-      <div className="pusher">
-        <div className="ui inverted vertical masthead center aligned segment">
-          <div className="ui container">
-            <div className="ui large secondary inverted pointing menu">
+      <div >
+        {/* <Segment className="ui inverted vertical center aligned teal"> */}
+          {/* <Container> */}
+            <Menu className="ui large secondary inverted pointing teal">
               <Link to="/" className="toc item">
-                <i className="sidebar icon"></i>
+                {/* <i className="sidebar icon"></i> */}
               </Link>
               <Link to="/" className="item">Home</Link>
-              <Link to="/find" className="item">Find nearby</Link>
+              <Link to="/find" className="item">Find</Link>
               <Link to="/profile" className="item">Profile</Link>
-              <Link to="/" onClick={handleLogout} className="item">
-                Logout
-              </Link>
-            </div>
-          </div>
-        
-          
-          <div className="ui text container">
-            <h1 className="ui inverted header">
-              Resources Xchange
-            </h1>
-            <h2>Learn new skills another way.</h2>
-            {/* <div className="ui huge primary button">Get Started <i className="right arrow icon"></i></div> */}
-          </div>
-
-        </div>
+              <Link to="/" onClick={handleLogout} className="right item">Logout</Link>
+            </Menu>
+          {/* </Container> */}
+        {/* </Segment> */}
       </div>
     </>
 

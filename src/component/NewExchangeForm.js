@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAnExchange } from '../actions/ExchangeActions'
 import { selectASkill } from '../actions/SkillActions'
+import { Segment,Form, Button } from 'semantic-ui-react'
+
 
 const NewExchangeForm = () => {
   const dispatch = useDispatch()
@@ -36,7 +38,7 @@ const NewExchangeForm = () => {
       ...exchangeForm,
       exchangee_id: theOtherUserSkills[e.target.value].id
     })
-    dispatch(selectASkill(theOtherUserSkills[e.target.value]))
+    // dispatch(selectASkill(theOtherUserSkills[e.target.value]))
   }
 
   const handleChange = (e) => {
@@ -52,9 +54,11 @@ const NewExchangeForm = () => {
 
   return (
     <React.Fragment>
+      <Segment>
+
     <div style={newXStyle}>New Exchange Form</div>
     <br />
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       My Skill: 
       <select onChange={handleMyChange}>
         {myUserSkills.map( (user_skill, index) => <option key={user_skill.id} value={index}> {user_skill.skill.name} </option>)}
@@ -72,8 +76,15 @@ const NewExchangeForm = () => {
       <input type="text" name="location" value={location} onChange={handleChange} placeholder="Online/Address" /><br /><br />
 
       <input type="submit" />
-    </form>
+      {/* <Form.Field
+      id='form-button-control-public'
+      control={Button}
+      content='Submit'
+      label='Label with htmlFor'
+    /> */}
+    </Form>
     <br />
+      </Segment>
     </React.Fragment>
     
   )
