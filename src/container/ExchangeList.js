@@ -38,14 +38,14 @@ const ExchangeList = () => {
   return (
     <React.Fragment>
       <Segment style={{ width:"800px" }}>
-        <Header as='h2' style={{ fontSize: '2em' }}>
+        <Header as='h2' color='purple' style={{ fontSize: '2em' }}>
         Coming Exchanges List
         </Header>
-        <Header as='h2' >
+        <Header as='h3' >
           Exchanges that I requested:
         </Header>
           <div>{myExchangesText}</div><br />
-        <Header as='h2' >
+        <Header as='h3' >
           Exchanges that I will provide:
         </Header>
           <div>{myProvidingText}</div><br />

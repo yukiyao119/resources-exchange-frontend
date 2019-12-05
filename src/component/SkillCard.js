@@ -12,7 +12,7 @@ const SkillCard = ({skill, handleClickSkill}) => {
         onClick={handleClickSkill}
         image='/qianbi.png'
         header={skill.name}
-        description='JavaScript, often abbreviated as JS, is a high-level, just-in-time compiled, object-oriented programming language that conforms to the ECMAScript specification.'
+        description='Lorem ipsum dolor sit amet, mundi corrumpit qui ea, quidam complectitur nec at. Eu vis alia invenire instructior.'
       />
     </Grid.Row>
   </Grid.Column>

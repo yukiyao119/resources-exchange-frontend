@@ -40,8 +40,8 @@ const ProfileInfo = () => {
     <Grid.Row clolumns={3}>
       <Grid.Column width={5}>
         {/* <Grid.Row  */}
-        <div>
-          <Card>
+        <div >
+          <Card >
             <Image src='/alpaca.jpg' wrapped ui={false} />
             <Card.Content>
               <Card.Header>Name: {displayname}</Card.Header>
@@ -60,16 +60,14 @@ const ProfileInfo = () => {
 
 
       <Grid.Column width={5} >
-        <Segment>
-          <Icon name='user' size='large'/>
-          <h2 className="ui header purple">My skills: </h2>
-          {mySkillsText}<br /><br /><br />
-          <AddSkillForm />
-        </Segment>
-
-        {/* <Segment> 
-          <AddSkillForm />
-        </Segment> */}
+          <Segment >
+        <div style={editFormStyle}>
+            <Icon name='user' size='large'/>
+            <h2 className="ui header purple">My skills: </h2>
+            {mySkillsText}<br /><br /><br />
+            <AddSkillForm />
+        </div>
+          </Segment>
       </Grid.Column>
 
 
@@ -98,7 +96,8 @@ const segmentStyle = {
 }
 
 const editFormStyle={
-  height: "100%"
+  height: "500px"
+  // overflow: "scroll"
 }
 
 export default ProfileInfo

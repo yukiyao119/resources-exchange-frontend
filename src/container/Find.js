@@ -2,9 +2,10 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 import NewExchangeForm from '../component/NewExchangeForm'
+import UserList from '../container/UserList'
 import mapStyles from "../mapStyles"
 import { selectAUser } from '../actions/UserActions'
-import { Grid, Container } from "semantic-ui-react"
+import { Grid, Container, Segment } from "semantic-ui-react"
 
 function Map() {
 
@@ -56,8 +57,7 @@ function Map() {
 
 
   return (
-<Container>
-
+  <>
     <GoogleMap
       defaultZoom={10}
       defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
@@ -98,16 +98,17 @@ function Map() {
           </div>
         </InfoWindow>
       )}
-    </GoogleMap>    
+    </GoogleMap>   
 
-      { newXStatus.newX === true ? 
 
+    { newXStatus.newX === true ? 
+    <Segment>
       <NewExchangeForm selectedUser={selectedUser}/>
+    </Segment>
 
-      : null}
+    : null}
     
-  </Container>
-
+  </>
   )
 }
 const profileStyle = {
@@ -121,16 +122,16 @@ export default function Find() {
 
   return (
     <>
-    <div style={{ width: "100vw", height: "100vh", border: "1px blue solid" }}>
-      <MapWrapped
-        googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
-          process.env.REACT_APP_GOOGLE_API_KEY
-        }`}
-        loadingElement={<div style={{ height: `100%` }} />}
-        containerElement={<div style={{ height: `100%` }} />}
-        mapElement={<div style={{ height: `100%` }} />}
-      />
-    </div>
+      <div className="ten wide column" style={{ width: "100vw", height: "100vh", border: "1px blue solid" }}>
+        <MapWrapped
+          googleMapURL={`https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=${
+            process.env.REACT_APP_GOOGLE_API_KEY
+          }`}
+          loadingElement={<div style={{ height: `100%` }} />}
+          containerElement={<div style={{ height: `100%` }} />}
+          mapElement={<div style={{ height: `100%` }} />}
+        />
+      </div>
 
     </>
   )
