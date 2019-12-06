@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import { Segment, Container, Menu } from 'semantic-ui-react'
+import { Segment, Container, Menu, Image } from 'semantic-ui-react'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -21,6 +21,7 @@ const Nav = () => {
         {/* <Segment className="ui inverted vertical center aligned teal"> */}
           {/* <Container> */}
             <Menu className="ui large secondary inverted pointing teal">
+              <Image src='/xxx.png' size='mini'/>
               <Link to="/" className="toc item">
                 {/* <i className="sidebar icon"></i> */}
               </Link>

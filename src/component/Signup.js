@@ -19,7 +19,8 @@ const Signup = props => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(userPostFetch(signupForm))
-    props.history.push('/')
+    props.history.push('/profile')
+    window.alert("Don't forget to fill in your information!")
   }
 
   // Destructuring keys from our local state to use in the form

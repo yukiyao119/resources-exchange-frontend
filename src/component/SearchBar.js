@@ -9,7 +9,7 @@ const SearchBar = (props) => {
 
       <Segment raised color='teal' size='large' textAlign='justify'>
         <div className="ui search">
-          <div className="ui left icon input">
+          <div className="ui left icon fluid input">
             <input type="text" 
             autoComplete="off"
             onChange={props.handleSearch} 

@@ -77,6 +77,7 @@ const reducer = (state = defaultState, action) => {
           return {
             ...state,
             currentUser: {
+              ...state.currentUser,
               user_skills: [...state.currentUser.user_skills].filter(user_skill => user_skill !== action.payload)
             },
             selectedSkill: {}

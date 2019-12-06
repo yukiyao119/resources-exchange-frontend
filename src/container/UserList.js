@@ -43,9 +43,9 @@ const UserList = () => {
     <Container>
       <br/>
       <Header as="h1">Available Users</Header>
-      {/* <Grid > */}
+      <Grid >
         {userItems}
-      {/* </Grid> */}
+      </Grid>
     </Container>
     
   )

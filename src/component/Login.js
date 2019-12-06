@@ -8,7 +8,7 @@ const Login = props => {
 
   const dispatch = useDispatch()
 
-  // Setting up local state using the useState hook
+  // Setting up local state using the useState hook 
   const [loginForm, setLoginForm] = useState({
     username: '',
     password: ''
@@ -19,6 +19,7 @@ const Login = props => {
     e.preventDefault()
     dispatch(userLoginFetch(loginForm))
     props.history.push('/profile')
+    
   }
 
   const onChange = e =>

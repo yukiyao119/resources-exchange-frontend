@@ -19,11 +19,12 @@ const NewExchangeForm = () => {
   
 
   const [exchangeForm, setExchangeForm] = useState({
-    exchanger_id: myUserSkills[0].id,
-    exchangee_id: theOtherUserSkills[0].id,
+    exchanger_id: myUserSkills[0].id ? myUserSkills[0].id : null,
+    exchangee_id: theOtherUserSkills[0].id ? theOtherUserSkills[0].id : null,
     time: '',
     location: ''
   })
+
   const { time, location } = exchangeForm
 
   const handleMyChange = e => {

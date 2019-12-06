@@ -51,9 +51,13 @@ const ExchangeCard = () => {
         Donated hour: {exchangee.user.donated_hour}<br /><br />
         
         <ReviewList />
+        <p>Only requester can write review and delete the review.</p>
 
-        {now.isAfter(selectedExchange.time) && selectedExchange.exchanger.user.username === currentUser.username ? (<div><p>Only requester can write review and delete your own review.</p> <ReviewForm /></div> )
+        {now.isAfter(selectedExchange.time) && selectedExchange.exchanger.user.username === currentUser.username ? (<div> <ReviewForm /></div> )
         :
+        null}
+
+        {now.isAfter(selectedExchange.time) ? null :
         <button onClick={()=>{handleCancel(selectedExchange)}}>Cancel this Xchange</button>}
 
       </div>
