@@ -20,7 +20,8 @@ demo tbc
 ## Tech/framework used
 
 ###### Built with
-- React (Hooks)
+- React
+- React Hooks
 - Redux
 - JSON Web Token & localStorage
 - Google Map Javascript API
