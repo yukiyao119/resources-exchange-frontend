@@ -22,10 +22,12 @@ demo tbc
 ###### Built with
 - React (Hooks)
 - Redux
+- JSON Web Token & localStorage
 - Google Map Javascript API
+- Moment.js
 - Semantic UI React
 - CSS
-- Moment.js
+
 
 
 
