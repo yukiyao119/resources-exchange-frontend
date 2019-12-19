@@ -20,12 +20,12 @@ demo tbc
 ## Tech/framework used
 
 ###### Built with
-- Create React App
+- React (Hooks)
 - Redux
-- React Hooks
 - Google Map Javascript API
 - Semantic UI React
 - CSS
+- Moment.js
 
 
 
