@@ -1,6 +1,6 @@
 # Resources Xchange
 
-A platform that helps people all over the world to learn new skills in a good way. :earth_americas: You can find skill owners and their skills to have an exchange with yours. :boom:
+A platform that helps people all over the world to learn skills in a new way. :earth_americas: You can find skill owners and their skills to have an exchange with yours. :boom:
 
 
 
