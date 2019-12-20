@@ -4,7 +4,6 @@ import UserCard from '../component/UserCard'
 import { Container, Grid, Header } from 'semantic-ui-react'
 
 const UserList = () => {
-
   
   const allUsers = useSelector(state => state.allUsers)
   // const currentUser = useSelector(state => state.currentUser)
@@ -25,7 +24,6 @@ const UserList = () => {
   }
 
   const filteredUsers = allUsers.filter(user => {
-    // console.log("check includes", checkIncludes(user.user_skills, skill))
     if ( checkIncludes(user.user_skills, skill) ) {
       return user
     } else {
@@ -35,7 +33,6 @@ const UserList = () => {
   console.log("filtered users", filteredUsers);
   
   const userItems = 
-  // filteredUsers.empty ? (<h4>No all Users yet</h4>) : 
   filteredUsers.map(user => (<UserCard key={user.id} user={user}/>))
 
   return (

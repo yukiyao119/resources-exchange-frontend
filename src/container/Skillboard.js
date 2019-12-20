@@ -34,12 +34,10 @@ const Skillboard = () => {
   const skillItems = 
   searchedSkills.length===0 ? allSkills : 
   searchedSkills.map(skill => (
-
         <SkillCard key={skill.id} 
         skill={skill} 
         handleClickSkill={() => handleClickSkill(skill) }
         />
-
   ))
 
   console.log("skillItems", skillItems);

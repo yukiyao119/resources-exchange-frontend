@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { selectAUser } from '../actions/UserActions'
 import NewExchangeForm from './NewExchangeForm'
 import { Button, Card, Image } from 'semantic-ui-react'
@@ -7,20 +7,27 @@ import { Button, Card, Image } from 'semantic-ui-react'
 const UserCard = (props) => {
 
   const dispatch = useDispatch()
+  const selectedUser = useSelector(state => state.selectedUser)
+  const currentUser = useSelector(state => state.currentUser)
 
   const { username, bio, donated_hour, location, time_slot} = props.user
-  // console.log("selected user", selectedUser)
+  // console.log("selected user", selectedUser, "props user", props.user)
   
   const [newXStatus, setnewXStatus] = useState({
     newX: false
   })
 
   const handleChange = (userObj) => {
-    setnewXStatus({
-      ...newXStatus,
-      newX: !newXStatus.newX
-    })
-    dispatch(selectAUser(userObj))
+    console.log("User Obj", userObj, "Current U", currentUser);
+    if (userObj.id !== currentUser.id){
+      setnewXStatus({
+        ...newXStatus,
+        newX: !newXStatus.newX
+      })
+      dispatch(selectAUser(userObj))
+    } else {
+      window.alert("Can not choose yourself!")
+    }
   }
 
   return (
@@ -47,7 +54,7 @@ const UserCard = (props) => {
           <Button animated='fade' onClick={()=> handleChange(props.user)}>
           <Button.Content visible>Continue!</Button.Content>
           <Button.Content hidden>Xchange!</Button.Content>
-        </Button>
+          </Button>
         </Card.Content>
         
       </Card>

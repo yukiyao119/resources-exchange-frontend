@@ -17,9 +17,6 @@ const SkillCard = ({skill, handleClickSkill}) => {
           />
           <Card.Header>{skill.name}</Card.Header>
           <Card.Meta>Find available skill owners!</Card.Meta>
-          {/* <Card.Description>
-             Find available <strong>skill owners</strong>!
-          </Card.Description> */}
         </Card.Content>
       </Card>
     </Grid.Row>
