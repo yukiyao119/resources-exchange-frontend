@@ -2,10 +2,10 @@ import React, { useState, useEffect } from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { withGoogleMap, withScriptjs, GoogleMap, Marker, InfoWindow } from "react-google-maps"
 import NewExchangeForm from '../component/NewExchangeForm'
-import UserList from '../container/UserList'
+// import UserList from '../container/UserList'
 import mapStyles from "../mapStyles"
 import { selectAUser } from '../actions/UserActions'
-import { Grid, Container, Segment } from "semantic-ui-react"
+import { Segment } from "semantic-ui-react"
 
 function Map() {
 
@@ -13,14 +13,12 @@ function Map() {
   const allUsers = useSelector(state => state.allUsers)
   const selectedUser = useSelector(state => state.selectedUser)
   const currentUser = useSelector(state => state.currentUser)
-  console.log("selectedUser", selectedUser, "currentUser", currentUser)
+  // console.log("selectedUser", selectedUser, "currentUser", currentUser)
 
   const [localSelectedUser, setLocalSelectedUser] = useState(null)
   const [newXStatus, setnewXStatus] = useState({
     newX: false
   })
-
-  
 
   useEffect(() => {
     const listener = e => {
@@ -55,6 +53,8 @@ function Map() {
     dispatch(selectAUser(user))
   }
 
+  const filteredUsers = allUsers.filter(user => user.user_skills.length !== 0 && user !== currentUser)
+  console.log("filtered Users",filteredUsers)
 
   return (
   <>
@@ -63,20 +63,20 @@ function Map() {
       defaultCenter={{ lat: 40.712776, lng: -74.005974 }}
       defaultOptions={{ styles: mapStyles }}
     >
-      {allUsers.map(user => (
-        <Marker
-          key={user.id}
-          position={{
-            lat:  parseFloat(user.lat),
-            lng:  parseFloat(user.lng)
-          }}
-          onClick={ () => {handleClickUser(user)} }
-          icon={{
-            url: `/goldenDoodle.jpg`,
-            scaledSize: new window.google.maps.Size(30, 23)
-          }}
-        />
-      ))}
+    {filteredUsers.map(user => (
+      <Marker
+        key={user.id}
+        position={{
+          lat:  parseFloat(user.lat),
+          lng:  parseFloat(user.lng)
+        }}
+        onClick={ () => {handleClickUser(user)} }
+        icon={{
+          url: `/goldenDoodle.jpg`,
+          scaledSize: new window.google.maps.Size(30, 23)
+        }}
+      />
+    ))}
 
       {localSelectedUser && (
         <InfoWindow
@@ -111,12 +111,8 @@ function Map() {
   </>
   )
 }
-const profileStyle = {
-  border: "1px blue solid"
-}
 
 const MapWrapped = withScriptjs(withGoogleMap(Map))
-
 
 export default function Find() {
 

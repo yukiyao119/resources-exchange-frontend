@@ -68,9 +68,6 @@ const Login = props => {
   )
 }
 
-const formStyle = {
-  border: "2px green solid"
-}
 
 export default Login
 

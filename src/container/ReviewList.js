@@ -12,7 +12,6 @@ import { deleteThisReview } from '../actions/ReviewActions'
 
   const filteredReviews = allReviews.filter(review => review.exchange_id === selectedExchange.id)
 
-
   const handleDelete = reviewObj => {
     dispatch(deleteThisReview(reviewObj))
   }
@@ -32,6 +31,9 @@ import { deleteThisReview } from '../actions/ReviewActions'
     <React.Fragment>
     <div>
       <h3>Reviews</h3>
+
+      <p>You can review once the event happened. Also, only the user who requested the exchange can write a review.</p>
+
       {reviewItems}
     </div>
     </React.Fragment>

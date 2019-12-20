@@ -15,6 +15,7 @@ export const logoutUser = () => dispatch => {
   localStorage.clear()
 }
 
+
 // user sign up, make a new user
 export const userPostFetch = user => dispatch => {
   const object = {
@@ -35,6 +36,7 @@ export const userPostFetch = user => dispatch => {
     })
 }
 
+
 export const userLoginFetch = (user) => dispatch => {
     const object = {
       method: "POST",
@@ -54,6 +56,7 @@ export const userLoginFetch = (user) => dispatch => {
       dispatch(loginUser(data.user))
     })
 }
+
 
 // user get to their own /profile
 export const getProfileFetch = () => dispatch => {
@@ -76,6 +79,7 @@ export const getProfileFetch = () => dispatch => {
     })
   }
 }
+
 
 // fetch all the users
 export const loadUsers = allUsers => ({
@@ -102,6 +106,7 @@ export const loadAllUsers = () => dispatch => {
   }
 }
 
+
 // edit/update this cur user info
 export const editProfile = user => ({
   type: "EDIT_PROFILE",
@@ -127,6 +132,7 @@ export const editProfileInfo = (user, user_id) => dispatch => {
   }
 }
 
+
 // select a user to have exchange, change state selectedUser 
 export const selectUser = user => ({
   type: "SELECT_USER",
@@ -136,3 +142,14 @@ export const selectUser = user => ({
 export const selectAUser = (user) => dispatch => {
   dispatch(selectUser(user))
 }
+
+
+// // increase exchangee's donated hour
+// export const increaseHour = () => ({
+//   type: "INCREASE_HOUR",
+//   // payload: 1
+// })
+
+// export const increaseDonatedHour = (user) => dispatch => {
+//   dispatch(increaseHour(user))
+// }

@@ -42,17 +42,13 @@ const UserList = () => {
 
     <Container>
       <br/>
-      <Header as="h1">Available Users</Header>
+      <Header as="h1">Available Skill Owners</Header>
       <Grid >
         {userItems}
       </Grid>
     </Container>
     
   )
-}
-
-const userListStyle={
-  border: "2px green solid"
 }
 
 

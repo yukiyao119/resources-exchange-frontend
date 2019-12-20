@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAReview } from '../actions/ReviewActions'
-import { Form, Grid } from 'semantic-ui-react'
+// import { increaseDonatedHour } from '../actions/UserActions'
 
 
 const ReviewForm = () => {
@@ -9,6 +9,9 @@ const ReviewForm = () => {
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
   const selectedExchange = useSelector(state => state.selectedExchange)
+  console.log("selected Exchange", selectedExchange)
+  // const reviewedUser = selectedExchange.exchangee.user
+
   
 
   const [reviewForm, setReviewForm] = useState({
@@ -27,6 +30,7 @@ const ReviewForm = () => {
   const handleSubmit = e => {
     e.preventDefault()
     dispatch(addAReview(reviewForm))
+    // dispatch(increaseDonatedHour(reviewedUser))
   }
 
   return (

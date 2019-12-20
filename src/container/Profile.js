@@ -1,15 +1,15 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
+// import { useSelector } from 'react-redux'
 // import { getProfileFetch } from '../actions/UserActions'
 import ProfileInfo from '../component/ProfileInfo'
 import ExchangeList from './ExchangeList'
 import DoneList from './DoneList'
-import { Segment, Grid, Form, Button, Container } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 
 const Profile = () => {
          
-    const currentUser = useSelector(state => state.currentUser)
+    // const currentUser = useSelector(state => state.currentUser)
     
     return (
         <>
@@ -39,10 +39,6 @@ const segmentStyle = {
     display: "flex",
     justifyContent: "center"
   }
-
-const profileStyle = {
-    border: "1px blue solid"
-}
 
 export default Profile
 

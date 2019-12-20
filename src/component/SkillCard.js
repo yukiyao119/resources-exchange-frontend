@@ -1,6 +1,6 @@
 import React from 'react'
 // import { useSelector } from 'react-redux'
-import { Card, Icon, Grid } from 'semantic-ui-react'
+import { Card, Grid, Image } from 'semantic-ui-react'
 
 
 const SkillCard = ({skill, handleClickSkill}) => {
@@ -8,12 +8,20 @@ const SkillCard = ({skill, handleClickSkill}) => {
   return (
     <Grid.Column width={4}>
     <Grid.Row>
-      <Card
-        onClick={handleClickSkill}
-        image='/qianbi.png'
-        header={skill.name}
-        description='Lorem ipsum dolor sit amet, mundi corrumpit qui ea, quidam complectitur nec at. Eu vis alia invenire instructior.'
-      />
+      <Card onClick={handleClickSkill}>
+        <Card.Content>
+          <Image
+            floated='right'
+            size='mini'
+            src='/qianbi.png'
+          />
+          <Card.Header>{skill.name}</Card.Header>
+          <Card.Meta>Find available skill owners!</Card.Meta>
+          {/* <Card.Description>
+             Find available <strong>skill owners</strong>!
+          </Card.Description> */}
+        </Card.Content>
+      </Card>
     </Grid.Row>
   </Grid.Column>
   )

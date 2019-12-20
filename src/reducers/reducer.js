@@ -1,4 +1,3 @@
-
 const defaultState = {
   currentUser: {},
   loggedIn: false,

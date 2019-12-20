@@ -55,9 +55,6 @@ const editFormStyle={
   height: "500px",
   overflow: "scroll"
 }
-const infoStyle = {
-  border: "1px cyan solid"
-}
 
 
 export default EditInfoForm

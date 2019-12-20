@@ -4,7 +4,7 @@ import SkillCard from '../component/SkillCard'
 import { selectASkill } from '../actions/SkillActions'
 import UserList from '../container/UserList'
 import SearchBar from '../component/SearchBar'
-import { Container, Grid, Image, Header } from 'semantic-ui-react'
+import { Container, Grid, Header } from 'semantic-ui-react'
 
 const Skillboard = () => {
 

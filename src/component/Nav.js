@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import { Segment, Container, Menu, Image } from 'semantic-ui-react'
+import { Menu, Image } from 'semantic-ui-react'
 
 const Nav = () => {
   const dispatch = useDispatch()

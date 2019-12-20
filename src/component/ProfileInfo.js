@@ -9,8 +9,6 @@ const ProfileInfo = () => {
   const dispatch = useDispatch()
   
   const currentUser = useSelector(state => state.currentUser)
-  console.log("currentUser", currentUser);
-  
   const { displayname, donated_hour, time_slot, location, bio } = currentUser
 
   const handleRemove = (user_skill) => {
@@ -26,7 +24,6 @@ const ProfileInfo = () => {
         </li>
         {/* <Button basic onClick={() =>handleRemove(user_skill)}
         size='mini' >Remove</Button> */}
-        
       </div>
     ) : null
   })
@@ -39,7 +36,6 @@ const ProfileInfo = () => {
     <Grid verticalAlign='middle' columns='equal'>
     <Grid.Row clolumns={3}>
       <Grid.Column width={5}>
-        {/* <Grid.Row  */}
         <div >
           <Card >
             <Image src='/alpaca.jpg' wrapped ui={false} />
@@ -58,7 +54,6 @@ const ProfileInfo = () => {
         </div>
       </Grid.Column>
 
-
       <Grid.Column width={5} >
           <Segment >
         <div style={editFormStyle}>
@@ -70,7 +65,6 @@ const ProfileInfo = () => {
           </Segment>
       </Grid.Column>
 
-
       <Grid.Column width={6}>
         <Segment compact stretched >
           <EditInfoForm />
@@ -78,21 +72,11 @@ const ProfileInfo = () => {
       </Grid.Column>
 
       </Grid.Row>
-
     </Grid>
     </Segment>
   </Container>
   )
 
-}
-
-const infoStyle = {
-  border: "3px orange solid"
-}
-
-const segmentStyle = {
-  display: "flex",
-  justifyContent: "space-between"
 }
 
 const editFormStyle={
@@ -102,33 +86,3 @@ const editFormStyle={
 
 export default ProfileInfo
 
-
-
-{/* <div style={infoStyle}>
-      <div>
-        <h2>Name: {displayname}</h2>
-        <h2>Image: <br/>
-          <img src="./alpaca.jpg" alt="profilePic"/></h2>
-        <h2>bio: {bio}</h2>
-        <h2>Location: {location}</h2>
-        <h2>Time slot: {time_slot}</h2>
-        <h2>Donated hours: {donated_hour}</h2>
-        <h2>My skills: </h2>
-      </div>
-      <div>{mySkillsText}</div>
-      <AddSkillForm />
-      <EditInfoForm />
-
-    </div> */}
-
-  //   <div>
-  //   <h2>Name: {displayname}</h2>
-  //   <h2>Image: <br/>
-  //     <img src="/alpaca.jpg" alt="profilePic"/></h2>
-  //   <h2>Bio: {bio}</h2>
-  //   <h2>Location: {location}</h2>
-  //   <h2>Time slot: {time_slot}</h2>
-  //   <h2>Donated hours: {donated_hour}</h2>
-  //   <h2>My skills: </h2>
-  // </div>
-  // <div>{mySkillsText}</div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Search, Grid, Header, Segment, Container } from 'semantic-ui-react'
+import { Segment, Container } from 'semantic-ui-react'
 
 const SearchBar = (props) => {
 

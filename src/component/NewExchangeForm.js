@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAnExchange } from '../actions/ExchangeActions'
-import { selectASkill } from '../actions/SkillActions'
-import { Segment,Form, Button } from 'semantic-ui-react'
+// import { selectASkill } from '../actions/SkillActions'
+import { Segment,Form } from 'semantic-ui-react'
 
 
 const NewExchangeForm = () => {

@@ -29,7 +29,7 @@ export const addReview = reviewObj => ({
   payload: reviewObj
 })
 
-// // post and add a new to /exchanges
+// post and add a new to /exchanges
 export const addAReview = (reviewObj) => dispatch => {
   const object = {
     method: "POST",
@@ -41,10 +41,10 @@ export const addAReview = (reviewObj) => dispatch => {
   fetch("http://localhost:3000/reviews", object)
     .then(res => res.json())
     .then(data => {
-      // debugger
       dispatch(addReview(data))
     })
 }
+
 
 // select a review
 export const selectReview = review => ({
@@ -56,6 +56,7 @@ export const selectAReview = (review) => dispatch => {
   dispatch(selectReview(review))
 }
 
+
 // delete / cancel a review
 export const deleteReview = (reviewObj) => ({
   type: 'DELETE_REVIEW',
@@ -63,14 +64,12 @@ export const deleteReview = (reviewObj) => ({
 })
 
 export const deleteThisReview = review => dispatch => {
-  // debugger
   let review_id = review.id
   const object = {
     method: 'DELETE'
   }
   fetch(`http://localhost:3000/reviews/${review_id}`, object)
   .then(r => {
-    // debugger
     dispatch(deleteReview(review))
   })
 }

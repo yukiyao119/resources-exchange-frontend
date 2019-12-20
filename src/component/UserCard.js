@@ -8,7 +8,7 @@ const UserCard = (props) => {
 
   const dispatch = useDispatch()
 
-  const { username, bio, donated_hour, img, location, time_slot} = props.user
+  const { username, bio, donated_hour, location, time_slot} = props.user
   // console.log("selected user", selectedUser)
   
   const [newXStatus, setnewXStatus] = useState({
@@ -59,9 +59,9 @@ const UserCard = (props) => {
   )
 }
 
-const userCardStyle={
-  border: "1px orange solid"
-}
+// const userCardStyle={
+//   border: "1px orange solid"
+// }
 
 export default UserCard 
 

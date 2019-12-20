@@ -56,8 +56,5 @@ const DoneList = () => {
 
 }
 
-const xChgStyle = {
-  border: "2px yellowgreen solid"
-}
 
 export default DoneList

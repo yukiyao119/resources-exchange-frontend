@@ -58,13 +58,5 @@ const ExchangeList = () => {
 
 }
 
-const segmentStyle = {
-  display: "flex",
-  justifyContent: "center"
-}
-
-const xChgStyle = {
-  border: "2px yellowgreen solid"
-}
 
 export default ExchangeList

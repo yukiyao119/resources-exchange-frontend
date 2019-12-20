@@ -4,7 +4,7 @@ import { cancelThisExchange } from '../actions/ExchangeActions'
 import * as moment from 'moment'
 import ReviewForm from './ReviewForm'
 import ReviewList from '../container/ReviewList'
-import { Container, Segment, Grid } from 'semantic-ui-react'
+import { Segment } from 'semantic-ui-react'
 
 
 const ExchangeCard = () => {
@@ -30,8 +30,7 @@ const ExchangeCard = () => {
       {/* <Container text> */}
       <div>
         <h3>Congrats! Your Xchange!</h3>
-        <p><strong>Details: </strong>As long as your time-slot is open, the xchange is considered accepted automatically. Both users will have a two-hours session. One hour for each skill exchange.</p>
-        <p><strong>Rule: </strong>If you can not make the Xchange, please cancel before the xchange time.</p>
+        <p><strong>Rule: </strong>As long as your time-slot is open, the xchange is considered accepted automatically. Both users will have a two-hours session. One hour for each skill exchange. If you can not make the Xchange, please cancel before the xchange time.</p>
 
         <strong>Description: </strong>{`${exchanger.user.username}'s ${exchanger.skill} exchanges ${exchangee.user.displayname}'s ${exchangee.skill}!!` }<br />
 
@@ -51,7 +50,6 @@ const ExchangeCard = () => {
         Donated hour: {exchangee.user.donated_hour}<br /><br />
         
         <ReviewList />
-        <p>Only requester can write review and delete the review.</p>
 
         {now.isAfter(selectedExchange.time) && selectedExchange.exchanger.user.username === currentUser.username ? (<div> <ReviewForm /></div> )
         :
@@ -67,8 +65,5 @@ const ExchangeCard = () => {
   )
 }
 
-const xChgStyle = {
-  border: "2px plum solid"
-}
 
 export default ExchangeCard
