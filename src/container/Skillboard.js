@@ -10,7 +10,7 @@ const Skillboard = () => {
 
   const dispatch = useDispatch()
   const allSkills = useSelector(state => state.allSkills)
-  const selectedSkill = useSelector(state => state.selectedSkill)
+  // const selectedSkill = useSelector(state => state.selectedSkill)
   console.log("allSkills", allSkills);
   
   const [searchQuery, setSearchQuery] = useState({
@@ -25,7 +25,6 @@ const Skillboard = () => {
   }
 
   const searchedSkills = allSkills.filter(skill => skill.name.toLowerCase().includes(searchQuery.query) )
-  console.log("searchedSkill", searchedSkills);
 
   const handleClickSkill = (skillObj) => {
     dispatch(selectASkill(skillObj))
@@ -48,19 +47,23 @@ const Skillboard = () => {
       <SearchBar handleSearch={handleSearch}/>
       <Container>
         <br/>
-        <Header as="h1">Skill Board</Header>
-        <Grid divided='vertically'>
-        {skillItems}
-        </Grid>
-
-        {Object.keys(selectedSkill).length>0 ? 
         <Grid>
-          <UserList /> 
-        </Grid>
-        : null}
-        <br />
-        
+        <Grid.Row columns={2}>
 
+          <Grid.Column width={9}>
+            <Header as="h1">Skill Board</Header>
+            {skillItems}
+          </Grid.Column>
+
+          <Grid.Column width={6}>
+            <Header as="h1">Skill Owners</Header>
+            <UserList />
+            {/* {Object.keys(selectedSkill).length>0 ? <UserList /> : null} */}
+          </Grid.Column>
+
+        </Grid.Row>
+        </Grid>
+        <br />
       </Container>
     </React.Fragment>
   )

@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import AddSkillForm from './AddSkillForm'
 import EditInfoForm from './EditInfoForm'
 import { deleteThisSkill } from '../actions/SkillActions'
-import { Segment, Grid, Card, Image, Icon, Container, Button } from 'semantic-ui-react'
+import { Image, Icon, Button, Divider, Header, List, Modal } from 'semantic-ui-react'
 
 const ProfileInfo = () => {
   const dispatch = useDispatch()
@@ -18,71 +18,70 @@ const ProfileInfo = () => {
   const mySkillsText = currentUser.user_skills ? currentUser.user_skills.map(user_skill => {
     return user_skill.skill.name ? (
       <div key={user_skill.id}>
-        <li key={user_skill.id} style={{fontSize: "1.5em"}}>
-          {user_skill.skill.name}
-          <Button basic circular onClick={() =>handleRemove(user_skill)} icon='delete' size='mini'></Button>
+        <li key={user_skill.id} >
+          {user_skill.skill.name} 
+          <Icon onClick={() =>handleRemove(user_skill)} name="remove" ></Icon>
         </li>
-        {/* <Button basic onClick={() =>handleRemove(user_skill)}
-        size='mini' >Remove</Button> */}
       </div>
     ) : null
   })
   : null
 
-
   return (
-  <Container>
-    <Segment vertical >
-    <Grid verticalAlign='middle' columns='equal'>
-    <Grid.Row clolumns={3}>
-      <Grid.Column width={5}>
-        <div >
-          <Card >
-            <Image src='/alpaca.jpg' wrapped ui={false} />
-            <Card.Content>
-              <Card.Header>Name: {displayname}</Card.Header>
-              <Card.Meta>
-                <span className='date'>Donated hours: {donated_hour}</span>
-              </Card.Meta>
-              <Card.Description>
-                Bio: {bio}<br />
-                Location: {location}<br />
-                Time slot: {time_slot}<br />
-              </Card.Description>
-            </Card.Content>
-          </Card>
-        </div>
-      </Grid.Column>
+    <>
+    <div style={ {"marginTop": "10px", "display": "flex"} }>
+      <div style={ {"margin": "25px", "width": "15%"} }>
+        <Image src='/alpaca.jpg' size='small' circular verticalAlign='top' />{' '}
+      </div>
+      <div style={ {"margin": "25px", "width": "25%", "textAlign": "left"} }>
+        <Header as='h3' color='purple'>Name: {displayname}</Header>
+          <span>Donated hours: {donated_hour} </span>
+          <List>
+            <List.Item><strong>Bio: </strong>{bio}</List.Item>
+            <List.Item><strong>Location: </strong>{location}</List.Item>
+            <List.Item><strong>Time slot: </strong>{time_slot}</List.Item>
+          </List>
 
-      <Grid.Column width={5} >
-          <Segment >
-        <div style={editFormStyle}>
-            <Icon name='user' size='large'/>
-            <h2 className="ui header purple">My skills: </h2>
-            {mySkillsText}<br /><br /><br />
-            <AddSkillForm />
-        </div>
-          </Segment>
-      </Grid.Column>
+          <Modal trigger={<Button>Edit</Button>}>
+            <Modal.Header>Profile Picture</Modal.Header>
+            <Modal.Content image>
+              <Image wrapped size='medium' src='/alpaca.jpg' />
+              <EditInfoForm />
+              {/* <Modal.Description>
+                <Header>Modal Header</Header>
+                <p>
+                  This is an example of expanded content that will cause the modal's
+                  dimmer to scroll
+                </p>
+                <Image src='/images/wireframe/paragraph.png' />
+              </Modal.Description> */}
+            </Modal.Content>
+            {/* <Modal.Actions>
+              <Button primary>
+                Proceed <Icon name='right chevron' />
+              </Button>
+            </Modal.Actions> */}
+          </Modal>
+      </div>
 
-      <Grid.Column width={6}>
-        <Segment compact stretched >
-          <EditInfoForm />
-        </Segment>
-      </Grid.Column>
+      <div style={ {"margin": "25px", "width": "20%", "textAlign": "left"} }>
+        <Header as='h3' color='purple' >My Skills</Header>
+          <span>{mySkillsText}</span>
+      </div>
 
-      </Grid.Row>
-    </Grid>
-    </Segment>
-  </Container>
+      <div style={ {"margin": "25px", "width": "20%"} }>
+        <AddSkillForm />
+      </div>
+
+    </div>
+
+      <Divider />
+
+    </>
   )
 
 }
 
-const editFormStyle={
-  height: "500px"
-  // overflow: "scroll"
-}
 
 export default ProfileInfo
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editProfileInfo } from '../actions/UserActions'
-import { Form } from "semantic-ui-react";
+import { Form, Button } from "semantic-ui-react";
 
 const EditInfoForm = () => {
 
@@ -9,11 +9,11 @@ const EditInfoForm = () => {
   const currentUser = useSelector(state => state.currentUser)
 
   const [infoForm, setInfoForm] = useState({
-    displayname: '',
-    img: '',
-    bio: '',
-    location: '',
-    time_slot: ''
+    displayname: currentUser.displayname,
+    img: currentUser.img,
+    bio: currentUser.bio,
+    location: currentUser.location,
+    time_slot: currentUser.time_slot
   })
 
   const handleChange = (e) => {
@@ -28,9 +28,9 @@ const EditInfoForm = () => {
 
   const { displayname, img, bio, location, time_slot } = infoForm
 
-  return (
 
-    <div style={editFormStyle}>
+  return (
+    <div >
       <h2 className="ui center aligned header purple">Edit Your Info here!</h2>
       <Form  onSubmit={handleSubmit}>
         Display Name: <br/>
@@ -44,17 +44,18 @@ const EditInfoForm = () => {
         
         Time slot:  <input type="text" name="time_slot" value={time_slot} onChange={handleChange} placeholder="Weekend/Weekday after work" /><br /><br />
         
-        <input type="submit" />
+        <Button type='submit'>Submit</Button>
       </Form>
     </div>
 
   )
 }
 
-const editFormStyle={
-  height: "500px",
-  overflow: "scroll"
-}
+// const editFormStyle={
+//   height: "800px"
+  // ,
+  // overflow: "scroll"
+// }
 
 
 export default EditInfoForm

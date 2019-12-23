@@ -12,24 +12,19 @@ const Profile = () => {
     // const currentUser = useSelector(state => state.currentUser)
     
     return (
-        <>
         <Container>
-
-        <Container >
             <ProfileInfo />
-        </Container>
 
-        <Container >
-            <div style={segmentStyle}>
-                <ExchangeList />
-            </div>
-            <div style={segmentStyle}>
-                <DoneList />
-            </div>
+            <Container >
+                <div style={segmentStyle}>
+                    <ExchangeList />
+                </div>
+                <div style={segmentStyle}>
+                    <DoneList />
+                </div>
+            </Container>
+            
         </Container>
-
-        </Container>
-        </>
     )
 
 }

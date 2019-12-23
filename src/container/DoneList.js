@@ -37,7 +37,7 @@ const DoneList = () => {
   return (
 
     <React.Fragment>
-    <Segment style={{ width:"800px" }}>
+    <Segment style={{ "margin": "15px", "width": "85%" }}>
       <Header as='h2' color='purple' style={{ fontSize: '2em' }}>History Exchanges</Header>
       <Header as='h3' >
         Past Exchanges that I requested:

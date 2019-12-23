@@ -37,7 +37,8 @@ const ExchangeList = () => {
 
   return (
     <React.Fragment>
-      <Segment style={{ width:"800px" }}>
+
+      <Segment style={{ "margin": "15px", "width": "85%" }}>
         <Header as='h2' color='purple' style={{ fontSize: '2em' }}>
         Coming Exchanges List
         </Header>

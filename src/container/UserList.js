@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import UserCard from '../component/UserCard'
-import { Container, Grid, Header } from 'semantic-ui-react'
+import { Container } from 'semantic-ui-react'
 
 const UserList = () => {
   
@@ -14,7 +14,6 @@ const UserList = () => {
   const skill = {id: selectedSkill.id, name: selectedSkill.name}
   console.log("skill", skill);
   
-
   const checkIncludes = (user_skills_arr, skillObj) => {
     if (user_skills_arr.filter(element => element.skill.name === skillObj.name).length > 0) {
       return true
@@ -38,11 +37,7 @@ const UserList = () => {
   return (
 
     <Container>
-      <br/>
-      <Header as="h1">Available Skill Owners</Header>
-      <Grid >
-        {userItems}
-      </Grid>
+      {userItems}
     </Container>
     
   )

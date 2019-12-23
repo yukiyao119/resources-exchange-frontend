@@ -9,7 +9,8 @@ const Signup = props => {
 
   const [signupForm, setSignupForm] = useState({
     username: '',
-    password: ''
+    password: '',
+    donated_hour: 0
   })
 
   // Controlled form functions
@@ -61,24 +62,6 @@ const Signup = props => {
       </Message>
     </Grid.Column>
   </Grid>
-    // <form onSubmit={handleSubmit} style={formStyle}>
-    //   <h1>Signup Page</h1>
-    //   <input
-    //     type="text"
-    //     name="username"
-    //     value={username}
-    //     onChange={handleChange}
-    //     placeholder="Username"
-    //   />
-    //   <input
-    //     type="password"
-    //     name="password"
-    //     value={password}
-    //     onChange={handleChange}
-    //     placeholder="Password"
-    //   />
-    //   <input type="submit" />
-    // </form>
   )
 }
 

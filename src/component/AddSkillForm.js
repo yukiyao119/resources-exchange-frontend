@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { addASkill } from '../actions/SkillActions';
-import { Form, Button } from "semantic-ui-react";
+import { Form, Button, Header } from "semantic-ui-react";
 
 
 const AddSkillForm = () => {
@@ -30,18 +30,17 @@ const AddSkillForm = () => {
   }
 
   return (
-    <React.Fragment>
-      <Form onSubmit={handleSubmit} size='large'>
-      <h2 className="ui aligned header purple">Add a new Skill</h2>
+    <>
+    <Header as='h3' color='purple'>Add a new Skill</Header>
+    <Form onSubmit={handleSubmit} size='small'>
+      <Form.Field inline>
         <select onChange={handleOnChange}>
           {allSkills.map( (skill, index) => <option key={skill.id} value={index}> {skill.name} </option>)}
-        </select>
-
-        <br/>
-        <Button basic circular icon='add' size='mini'></Button>
-
-      </Form>
-    </React.Fragment>
+        </select> 
+        <Button circular basic size='mini' icon="add" onSubmit={handleSubmit}></Button>
+      </Form.Field>
+    </Form>
+    </>
   )
 
 }

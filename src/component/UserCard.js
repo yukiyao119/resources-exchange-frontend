@@ -2,12 +2,11 @@ import React, { useState }  from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAUser } from '../actions/UserActions'
 import NewExchangeForm from './NewExchangeForm'
-import { Button, Card, Image } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 
 const UserCard = (props) => {
 
   const dispatch = useDispatch()
-  const selectedUser = useSelector(state => state.selectedUser)
   const currentUser = useSelector(state => state.currentUser)
 
   const { username, bio, donated_hour, location, time_slot} = props.user
@@ -32,36 +31,20 @@ const UserCard = (props) => {
 
   return (
     <>
-    <Card.Group >
-      <Card >
-        <Card.Content>
-          <Image
-            floated='left'
-            size='tiny'
-            src='/alpaca.jpg'
-          /><br/><br/>
-          <Card.Header>{username}</Card.Header>
-          <Card.Meta>Recommended users</Card.Meta>
-          <Card.Description>
-          Bio: {bio} <br/>
-          Donated hour: <strong>{donated_hour}</strong><br/>
-          Location: {location} <br/>
-          Open time: {time_slot}<br/>
-          </Card.Description>
-        </Card.Content>
-
-        <Card.Content extra>
-          <Button animated='fade' onClick={()=> handleChange(props.user)}>
-          <Button.Content visible>Continue!</Button.Content>
-          <Button.Content hidden>Xchange!</Button.Content>
-          </Button>
-        </Card.Content>
-        
-      </Card>
-    </Card.Group>
-    
+      <List divided relaxed>
+      <List.Item>
+        <List.Icon name='user' size='large' verticalAlign='middle' />
+        <List.Content>
+          <List.Header onClick={()=> handleChange(props.user)}>{username}</List.Header>
+          <List.Description onClick={()=> handleChange(props.user)}>
+            Bio: {bio} <br/>
+            Donated hour: <strong>{donated_hour}</strong><br/>
+            Location: {location} <br/>
+            Open time: {time_slot}<br/></List.Description>
+        </List.Content>
+      </List.Item>
+      </List>
     { newXStatus.newX === true ? <NewExchangeForm /> : null}
-    
     </>
   )
 }

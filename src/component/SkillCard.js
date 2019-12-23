@@ -6,9 +6,9 @@ import { Card, Grid, Image } from 'semantic-ui-react'
 const SkillCard = ({skill, handleClickSkill}) => {
 
   return (
-    <Grid.Column width={4}>
+    // <Grid.Column width={4}>
     <Grid.Row>
-      <Card onClick={handleClickSkill}>
+      <Card fluid onClick={handleClickSkill}>
         <Card.Content>
           <Image
             floated='right'
@@ -20,7 +20,7 @@ const SkillCard = ({skill, handleClickSkill}) => {
         </Card.Content>
       </Card>
     </Grid.Row>
-  </Grid.Column>
+  // </Grid.Column>
   )
 }
 
