@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import { Menu, Image } from 'semantic-ui-react'
+import { Menu, Image, Label } from 'semantic-ui-react'
 
 const Nav = () => {
   const dispatch = useDispatch()
@@ -18,20 +18,14 @@ const Nav = () => {
     { loggedIn ? 
     <>
       <div >
-        {/* <Segment className="ui inverted vertical center aligned teal"> */}
-          {/* <Container> */}
-            <Menu className="ui large secondary inverted pointing teal">
-              <Image src='/xxx.png' size='mini'/>
-              <Link to="/" className="toc item">
-                {/* <i className="sidebar icon"></i> */}
-              </Link>
-              <Link to="/" className="item">Home</Link>
-              <Link to="/find" className="item">Find</Link>
-              <Link to="/profile" className="item">Profile</Link>
-              <Link to="/" onClick={handleLogout} className="right item">Logout</Link>
-            </Menu>
-          {/* </Container> */}
-        {/* </Segment> */}
+        <Menu className="ui large secondary inverted teal">
+          <Image src='/xxx.png' size='mini'/>
+          <Link to="/" className="toc item"></Link>
+          <Link to="/" className="item">Home</Link>
+          <Link to="/find" className="item">Find<Label basic color='teal' pointing='left' size='small'>Beta</Label></Link>
+          <Link to="/profile" className="item">Profile</Link>
+          <Link to="/" onClick={handleLogout} className="right item">Logout</Link>
+        </Menu>
       </div>
     </>
 

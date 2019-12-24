@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { addAReview } from '../actions/ReviewActions'
+import { Form, Header, Button, TextArea } from 'semantic-ui-react'
 // import { increaseDonatedHour } from '../actions/UserActions'
-
 
 const ReviewForm = () => {
 
@@ -12,13 +12,11 @@ const ReviewForm = () => {
   console.log("selected Exchange", selectedExchange)
   // const reviewedUser = selectedExchange.exchangee.user
 
-  
-
   const [reviewForm, setReviewForm] = useState({
     user_id: currentUser.id,
     exchange_id: selectedExchange.id,
     content: '',
-    author: ''
+    author: selectedExchange.exchanger.user.username
   })
 
   const { content, author } = reviewForm
@@ -33,17 +31,18 @@ const ReviewForm = () => {
     // dispatch(increaseDonatedHour(reviewedUser))
   }
 
+
   return (
   <React.Fragment>
-    <div>
-      <form onSubmit={handleSubmit}>
-      Share your experience: 
-        <input type="text" name="content" value={content} onChange={handleChange} placeholder="review here.." />
+    <div style={{ "marginTop": "25px", 'width': "50%"}}>
+      <Form onSubmit={handleSubmit}>
+      <Header as='h3' color='purple'>Share your experience: </Header>
+        <Form.Field control={TextArea}  name="content" value={content} onChange={handleChange} placeholder="review here.." />
 
-        <input type="text" name="author" value={author} onChange={handleChange} placeholder="Your name" />
+        <Form.Input type="text" name="author" value={author} onChange={handleChange} placeholder="Your name" />
 
-        <input type="submit" /><br /><br />
-      </form>
+        <Button>submit</Button><br /><br />
+      </Form>
     </div>
     
   </React.Fragment>

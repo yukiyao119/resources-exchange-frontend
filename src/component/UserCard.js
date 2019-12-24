@@ -2,7 +2,7 @@ import React, { useState }  from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { selectAUser } from '../actions/UserActions'
 import NewExchangeForm from './NewExchangeForm'
-import { List } from 'semantic-ui-react'
+import { List, Header } from 'semantic-ui-react'
 
 const UserCard = (props) => {
 
@@ -35,12 +35,12 @@ const UserCard = (props) => {
       <List.Item>
         <List.Icon name='user' size='large' verticalAlign='middle' />
         <List.Content>
-          <List.Header onClick={()=> handleChange(props.user)}>{username}</List.Header>
+          <Header as='h5' color='purple' onClick={()=> handleChange(props.user)}>{username}</Header>
           <List.Description onClick={()=> handleChange(props.user)}>
-            Bio: {bio} <br/>
-            Donated hour: <strong>{donated_hour}</strong><br/>
-            Location: {location} <br/>
-            Open time: {time_slot}<br/></List.Description>
+            <strong>Bio: </strong> {bio} <br/>
+            <strong>Location: </strong> {location} <br/>
+            <strong>Donated hour: </strong> {donated_hour}<br/>
+            <strong>Open time: </strong> {time_slot}<br/></List.Description>
         </List.Content>
       </List.Item>
       </List>
@@ -54,21 +54,3 @@ const UserCard = (props) => {
 // }
 
 export default UserCard 
-
-
-
-// <div style={userCardStyle}>
-// Username: {username}
-// <br />
-// <img src="./alpaca.jpg" alt="profilePic"/>
-// <br />
-// Bio: {bio}
-// <br />
-// Donated hour: {donated_hour}
-// <br />
-// Location: {location}
-// <br />
-// Open time: {time_slot}
-// <br />
-// <button onClick={()=> handleChange(props.user)}>Request an Xchange!</button>
-// </div>

@@ -10,7 +10,8 @@ const Signup = props => {
   const [signupForm, setSignupForm] = useState({
     username: '',
     password: '',
-    donated_hour: 0
+    donated_hour: 0,
+    img: '/alpaca.png'
   })
 
   // Controlled form functions
@@ -29,7 +30,7 @@ const Signup = props => {
 
   // Component code
   return (
-  <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+  <Grid textAlign='center' style={{ 'height': '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='teal' textAlign='center'>
         <Image src='/xxx.png' /> Sign Up
@@ -50,7 +51,6 @@ const Signup = props => {
             name="password"
             value={password}
           />
-
           <Button color='teal' fluid size='large' type="submit">
             Signup
           </Button>

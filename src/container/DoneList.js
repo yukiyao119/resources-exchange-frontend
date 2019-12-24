@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import * as moment from 'moment';
 import { selectAExchange } from '../actions/ExchangeActions'
 import ExchangeCard from '../component/ExchangeCard'
-import { Header, Segment } from 'semantic-ui-react';
+import { Header, Segment, Label, List, Icon, Modal } from 'semantic-ui-react';
 
 const DoneList = () => {
 
@@ -11,7 +11,6 @@ const DoneList = () => {
   const allExchanges = useSelector(state => state.allExchanges)
   const currentUser = useSelector(state => state.currentUser)
   const selectedExchange = useSelector(state => state.selectedExchange)
-  // let now = moment().format('MMMM Do YYYY, h:mm:ss a')
   let now = moment.utc();
 
   const pastExchanges = allExchanges.filter(exchange => now.isAfter(exchange.time))
@@ -25,31 +24,44 @@ const DoneList = () => {
   }
 
   const myExchangesText = myExchanges.length === 0 ? (<p>No coming exchanges yet</p>) : myExchanges.map(exchange => (
-    <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-      {`My ${exchange.exchanger.skill} requested...`}
-    </li>))
+  <List>
+    <Modal trigger={<List.Item key={exchange.id}  onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
+    {`My ${exchange.exchanger.skill} VS ${exchange.exchangee.user.username}'s ${exchange.exchangee.skill}`}</List.Item>} closeIcon>
+      <Header as='h3' icon='bell' color='purple' content='Your exchange!' />
+      <Modal.Content>
+        {now.isAfter(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null}
+      </Modal.Content>
+    </Modal>
+  </List>))
 
   const myProvidingText = myProviding.length === 0 ? (<p>No coming providing exchanges</p>) : myProviding.map(exchange => (
-  <li key={exchange.id}  onClick={()=> {handleClick(exchange)}}> 
-    {`${exchange.exchanger.user.displayname}'s ${exchange.exchanger.skill} requested...`}
-  </li>))
+  <List>
+    <Modal trigger={<List.Item key={exchange.id}  onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
+    {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} VS ${exchange.exchangee.user.username}'s ${exchange.exchangee.skill}`}</List.Item>} closeIcon>
+      <Header as='h3' icon='bell' color='purple' content='Your exchange!' />
+      <Modal.Content>
+        {now.isAfter(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null}
+      </Modal.Content>
+    </Modal>
+  </List>))
 
   return (
 
     <React.Fragment>
-    <Segment style={{ "margin": "15px", "width": "85%" }}>
-      <Header as='h2' color='purple' style={{ fontSize: '2em' }}>History Exchanges</Header>
+    <Segment style={{ "margin": "5px"}} raised>
+      <Label color='purple' ribbon size='large'>History</Label>
+      <Header as='h2' color='purple' style={{ fontSize: '2em' }}>Your Exchanges</Header>
       <Header as='h3' >
-        Past Exchanges that I requested:
+        <Label size='small' tag>Requested</Label>
       </Header>
       <div> {myExchangesText}</div><br />
       <Header as='h3' >
-        Exchanges that I provided:
+        <Label size='small' tag>Received</Label>
       </Header>
       <div> {myProvidingText}</div><br />
     </Segment>
 
-    {now.isAfter(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null}
+    {/* {now.isAfter(selectedExchange.time) && selectedExchange.id ? <ExchangeCard /> : null} */}
     </React.Fragment>
   )
 

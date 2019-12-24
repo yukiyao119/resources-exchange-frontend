@@ -45,20 +45,19 @@ const Skillboard = () => {
   return (
     <React.Fragment>
       <SearchBar handleSearch={handleSearch}/>
-      <Container>
+      <Container style={{ 'width': '80%' }}>
         <br/>
-        <Grid>
+        <Grid >
         <Grid.Row columns={2}>
 
-          <Grid.Column width={9}>
+          <Grid.Column width={9} style={{ 'margin': '10px'}}>
             <Header as="h1">Skill Board</Header>
             {skillItems}
           </Grid.Column>
 
-          <Grid.Column width={6}>
+          <Grid.Column width={6} style={{ 'margin': '10px'}}>
             <Header as="h1">Skill Owners</Header>
             <UserList />
-            {/* {Object.keys(selectedSkill).length>0 ? <UserList /> : null} */}
           </Grid.Column>
 
         </Grid.Row>

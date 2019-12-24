@@ -4,7 +4,7 @@ import { cancelThisExchange } from '../actions/ExchangeActions'
 import * as moment from 'moment'
 import ReviewForm from './ReviewForm'
 import ReviewList from '../container/ReviewList'
-import { Segment } from 'semantic-ui-react'
+import { Segment, Button } from 'semantic-ui-react'
 
 
 const ExchangeCard = () => {
@@ -25,41 +25,22 @@ const ExchangeCard = () => {
   
   return (
     <React.Fragment>
-      {/* style={{ padding: '8em 0em' }} */}
+    
     <Segment style={{ margin: '0' }}>
-      {/* <Container text> */}
-      <div>
-        <h3>Congrats! Your Xchange!</h3>
-        <p><strong>Rule: </strong>As long as your time-slot is open, the xchange is considered accepted automatically. Both users will have a two-hours session. One hour for each skill exchange. If you can not make the Xchange, please cancel before the xchange time.</p>
-
-        <strong>Description: </strong>{`${exchanger.user.username}'s ${exchanger.skill} exchanges ${exchangee.user.displayname}'s ${exchangee.skill}!!` }<br />
-
-        <strong>Time: </strong> {formattedTime}<br />
-
-        <strong>Location: </strong>{location}<br /><br />
-
-        <strong>
-        Requester Info:</strong><br />
-        Name: {exchanger.user.username}<br />
-        Providing skill: {exchanger.skill}<br />
-        Donated hour: {exchanger.user.donated_hour}<br /><br />
-
-        <strong>Provider Info:</strong><br />
-        Name: {exchangee.user.username}<br />
-        Providing skill: {exchangee.skill}<br />
-        Donated hour: {exchangee.user.donated_hour}<br /><br />
+      <div style={{'width': "100%"}}>
+        <strong>Description: </strong>   {`${exchanger.user.username}'s ${exchanger.skill} exchanges ${exchangee.user.displayname}'s ${exchangee.skill}!!` }<br />
+        <strong>Time: </strong>   {formattedTime}<br />
+        <strong>Location: </strong>   {location}<br /><br />
         
+        <div ><strong>Rule: </strong>As long as your time-slot is open, the xchange is considered accepted automatically. Both users will have a two-hours session. One hour for each skill exchange. If you can not make the Xchange, please cancel before the xchange time.</div>
         <ReviewList />
 
-        {now.isAfter(selectedExchange.time) && selectedExchange.exchanger.user.username === currentUser.username ? (<div> <ReviewForm /></div> )
-        :
-        null}
+        {now.isAfter(selectedExchange.time) && selectedExchange.exchanger.user.username === currentUser.username ? <ReviewForm />:null}
 
         {now.isAfter(selectedExchange.time) ? null :
-        <button onClick={()=>{handleCancel(selectedExchange)}}>Cancel this Xchange</button>}
+        <Button basic onClick={()=>{handleCancel(selectedExchange)}}>Cancel this Xchange</Button>}
 
       </div>
-      {/* </Container> */}
     </Segment>
     </React.Fragment>
   )
