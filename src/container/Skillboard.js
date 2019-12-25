@@ -50,9 +50,11 @@ const Skillboard = () => {
         <Grid >
         <Grid.Row columns={2}>
 
-          <Grid.Column width={9} style={{ 'margin': '10px'}}>
+          <Grid.Column width={9} >
             <Header as="h1">Skill Board</Header>
-            {skillItems}
+            <div style={{ 'margin': '10px', 'display': 'flex', 'flexWrap': 'wrap'}}>
+              {skillItems}
+            </div>
           </Grid.Column>
 
           <Grid.Column width={6} style={{ 'margin': '10px'}}>
