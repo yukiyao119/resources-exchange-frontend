@@ -73,7 +73,7 @@ function Map() {
         onClick={ () => {handleClickUser(user)} }
         icon={{
           url: `/goldenDoodle.jpg`,
-          scaledSize: new window.google.maps.Size(30, 23)
+          scaledSize: new window.google.maps.Size(20, 15)
         }}
       />
     ))}
