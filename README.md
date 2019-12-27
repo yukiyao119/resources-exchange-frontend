@@ -6,7 +6,7 @@ A platform that helps people all over the world to learn skills in a new way. :e
 
 ## Motivation
 
-We have many resources exchange or barters exsisted in the community, which makes me wonder if we bring it online, it can benifit more people, not limited to a community. 
+The original ideal was inspired by the resources exchange or barters exsisted in the community(eg, The Time Doners), which makes me wonder if we bring it online and benifit more people who want to learn new skills. 
 
 
 
