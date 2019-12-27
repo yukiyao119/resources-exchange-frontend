@@ -14,7 +14,9 @@ const ExchangeCard = () => {
   console.log("selected Exchange", selectedExchange)
   const { exchanger, exchangee, time, location } = selectedExchange
   const currentUser = useSelector(state => state.currentUser)
-  const formattedTime = moment(time).format('MMMM Do YYYY, h:mm:ss a')
+  let formattedTime = moment.utc(time).format('MM-DD-YYYY, HH:mm')
+  console.log("time", time, 'formattedTime', formattedTime);
+  
 
   let now = moment.utc()
 

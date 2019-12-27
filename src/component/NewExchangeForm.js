@@ -11,7 +11,7 @@ const NewExchangeForm = () => {
   const currentUser = useSelector(state => state.currentUser)
   const selectedUser = useSelector(state => state.selectedUser)
   const selectedSkill = useSelector(state => state.selectedSkill)
-  console.log("current User", currentUser, "selected User", selectedUser, "selected Skill", selectedSkill);
+  console.log("current User", currentUser, "selected User", selectedUser, "selected Skill", selectedSkill)
   
   const myUserSkills = currentUser.user_skills
   const theOtherUserSkills = selectedUser.user_skills
@@ -71,18 +71,12 @@ const NewExchangeForm = () => {
       </select>
 
       Time:  
-      <input type="datetime-local" name="time" value={time} onChange={handleChange} placeholder="2019-12-01 18:00:00" /><br /><br />
+      <input type="datetime-local" name="time" value={time} onChange={handleChange} placeholder="2019-12-01 08:00" /><br /><br />
 
       Location: 
       <input type="text" name="location" value={location} onChange={handleChange} placeholder="Online/Address" /><br /><br />
 
       <input type="submit" />
-      {/* <Form.Field
-      id='form-button-control-public'
-      control={Button}
-      content='Submit'
-      label='Label with htmlFor'
-    /> */}
     </Form>
     <br />
       </Segment>
