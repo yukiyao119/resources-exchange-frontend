@@ -10,10 +10,9 @@ The original ideal was inspired by the resources exchange or barters exsisted in
 
 
 
-## Screenshots
+## Demo
 
-logo tbc
-demo tbc
+https://youtu.be/Q9L_S-hlYSw
 
 
 
