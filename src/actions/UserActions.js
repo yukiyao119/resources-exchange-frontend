@@ -25,7 +25,7 @@ export const userPostFetch = user => dispatch => {
     },
     body: JSON.stringify(user)
     }
-  fetch("http://localhost:3000/users", object)
+  fetch("https://resources-exchange-backend.herokuapp.com/users", object)
     .then(res => res.json())
     .then(data => {
       data.errors ? 
@@ -46,7 +46,7 @@ export const userLoginFetch = (user) => dispatch => {
       },
       body: JSON.stringify(user)
     }
-    fetch('http://localhost:3000/login', object)
+    fetch('https://resources-exchange-backend.herokuapp.com/login', object)
     .then(res => res.json())
     .then(data => {
       data.errors ?
@@ -63,7 +63,7 @@ export const userLoginFetch = (user) => dispatch => {
 export const getProfileFetch = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    return fetch("http://localhost:3000/profile", {
+    return fetch("https://resources-exchange-backend.herokuapp.com/profile", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -91,7 +91,7 @@ export const loadUsers = allUsers => ({
 export const loadAllUsers = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch("http://localhost:3000/users", {
+    fetch("https://resources-exchange-backend.herokuapp.com/users", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export const editProfile = user => ({
 export const editProfileInfo = (user, user_id) => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch(`http://localhost:3000/users/${user_id}`, {
+    fetch(`https://resources-exchange-backend.herokuapp.com/users/${user_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

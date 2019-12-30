@@ -7,7 +7,7 @@ export const loadReviews = reviewsArr => ({
 export const loadAllReviews = () => dispatch => {
   // const token = localStorage.token
   // if (token) {
-    fetch("http://localhost:3000/reviews", {
+    fetch("https://resources-exchange-backend.herokuapp.com/reviews", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export const addAReview = (reviewObj) => dispatch => {
     },
     body: JSON.stringify(reviewObj)
     }
-  fetch("http://localhost:3000/reviews", object)
+  fetch("https://resources-exchange-backend.herokuapp.com/reviews", object)
     .then(res => res.json())
     .then(data => {
       dispatch(addReview(data))
@@ -68,7 +68,7 @@ export const deleteThisReview = review => dispatch => {
   const object = {
     method: 'DELETE'
   }
-  fetch(`http://localhost:3000/reviews/${review_id}`, object)
+  fetch(`https://resources-exchange-backend.herokuapp.com/reviews/${review_id}`, object)
   .then(r => {
     dispatch(deleteReview(review))
   })
