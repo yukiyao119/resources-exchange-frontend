@@ -1,3 +1,7 @@
+// const deployment = 'http://localhost:3000/'
+const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+
+
 // fetch all the reviews
 export const loadReviews = reviewsArr => ({
   type: "LOAD_REVIEWS",
@@ -7,7 +11,7 @@ export const loadReviews = reviewsArr => ({
 export const loadAllReviews = () => dispatch => {
   // const token = localStorage.token
   // if (token) {
-    fetch("https://resources-exchange-backend.herokuapp.com/reviews", {
+    fetch(`${deployment}reviews`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -38,7 +42,7 @@ export const addAReview = (reviewObj) => dispatch => {
     },
     body: JSON.stringify(reviewObj)
     }
-  fetch("https://resources-exchange-backend.herokuapp.com/reviews", object)
+  fetch(`${deployment}reviews`, object)
     .then(res => res.json())
     .then(data => {
       dispatch(addReview(data))
@@ -68,7 +72,7 @@ export const deleteThisReview = review => dispatch => {
   const object = {
     method: 'DELETE'
   }
-  fetch(`https://resources-exchange-backend.herokuapp.com/reviews/${review_id}`, object)
+  fetch(`${deployment}reviews/${review_id}`, object)
   .then(r => {
     dispatch(deleteReview(review))
   })

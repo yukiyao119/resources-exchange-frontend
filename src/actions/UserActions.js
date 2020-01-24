@@ -1,3 +1,6 @@
+// const deployment = 'http://localhost:3000/'
+const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+
 // clear the localstorage token
 export const clearUserAction = () => ({
   type: 'LOGOUT_USER'
@@ -25,7 +28,7 @@ export const userPostFetch = user => dispatch => {
     },
     body: JSON.stringify(user)
     }
-  fetch("https://resources-exchange-backend.herokuapp.com/users", object)
+  fetch(`${deployment}users`, object)
     .then(res => res.json())
     .then(data => {
       data.errors ? 
@@ -46,7 +49,7 @@ export const userLoginFetch = (user) => dispatch => {
       },
       body: JSON.stringify(user)
     }
-    fetch('https://resources-exchange-backend.herokuapp.com/login', object)
+    fetch(`${deployment}login`, object)
     .then(res => res.json())
     .then(data => {
       data.errors ?
@@ -63,7 +66,7 @@ export const userLoginFetch = (user) => dispatch => {
 export const getProfileFetch = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    return fetch("https://resources-exchange-backend.herokuapp.com/profile", {
+    return fetch(`${deployment}profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -74,6 +77,7 @@ export const getProfileFetch = () => dispatch => {
     .then(resp => resp.json())
     .then(existingUser => {
       // existingUser has a token key, has a user key
+      // message key?
       existingUser.errors ? 
       localStorage.removeItem("token") :
       dispatch(loginUser(existingUser.user))
@@ -91,7 +95,7 @@ export const loadUsers = allUsers => ({
 export const loadAllUsers = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch("https://resources-exchange-backend.herokuapp.com/users", {
+    fetch(`${deployment}users`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -117,7 +121,7 @@ export const editProfile = user => ({
 export const editProfileInfo = (user, user_id) => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch(`https://resources-exchange-backend.herokuapp.com/users/${user_id}`, {
+    fetch(`${deployment}users/${user_id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

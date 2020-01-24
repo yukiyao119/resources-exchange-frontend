@@ -1,3 +1,7 @@
+// const deployment = 'http://localhost:3000/'
+const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+
+
 // fetch all the skills 
 export const loadSkills = skillsArr => ({
   type: "LOAD_SKILLS",
@@ -7,7 +11,7 @@ export const loadSkills = skillsArr => ({
 export const loadAllSkills = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch("https://resources-exchange-backend.herokuapp.com/skills", {
+    fetch(`${deployment}skills`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -39,7 +43,7 @@ export const addASkill = ( userSkillObj ) => dispatch => {
     },
     body: JSON.stringify( userSkillObj )
     }
-  fetch("https://resources-exchange-backend.herokuapp.com/user_skills", object)
+  fetch(`${deployment}user_skills`, object)
     .then(res => res.json())
     .then(data => {
       // debugger
@@ -70,7 +74,7 @@ export const deleteThisSkill = user_skill => dispatch => {
   const object = {
     method: 'DELETE'
   }
-  fetch(`https://resources-exchange-backend.herokuapp.com/user_skills/${user_skill_id}`, object)
+  fetch(`${deployment}user_skills/${user_skill_id}`, object)
   .then(r => {
     // debugger
     dispatch(deleteSkill(user_skill))

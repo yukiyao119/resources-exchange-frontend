@@ -1,3 +1,7 @@
+// const deployment = 'http://localhost:3000/'
+const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+
+
 // fetch all the exchanges 
 export const loadExchanges = exchangesArr => ({
   type: "LOAD_EXCHANGES",
@@ -7,7 +11,7 @@ export const loadExchanges = exchangesArr => ({
 export const loadAllExchanges = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch("https://resources-exchange-backend.herokuapp.com/exchanges", {
+    fetch(`${deployment}exchanges`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -43,7 +47,7 @@ export const cancelThisExchange = exchange => dispatch => {
   const object = {
     method: 'DELETE'
   }
-  fetch(`https://resources-exchange-backend.herokuapp.com/exchanges/${exchange.id}`, object)
+  fetch(`${deployment}exchanges/${exchange.id}`, object)
   .then(r => {
     // debugger
     dispatch(cancelExchange(exchange))
@@ -66,7 +70,7 @@ export const addAnExchange = (exchangeObj) => dispatch => {
     },
     body: JSON.stringify(exchangeObj)
     }
-  fetch("https://resources-exchange-backend.herokuapp.com/exchanges", object)
+  fetch(`${deployment}exchanges`, object)
     .then(res => res.json())
     .then(data => {
       // debugger
