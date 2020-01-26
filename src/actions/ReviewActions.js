@@ -1,5 +1,5 @@
-// const deployment = 'http://localhost:3000/'
-const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+const deployment = 'http://localhost:3000/'
+// const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
 
 // fetch all the reviews

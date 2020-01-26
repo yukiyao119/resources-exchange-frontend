@@ -4,7 +4,7 @@ import { userPostFetch } from '../actions/UserActions';
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
-const Signup = props => {
+const Signup = routerProps => {
   const dispatch = useDispatch()
 
   const [signupForm, setSignupForm] = useState({
@@ -20,9 +20,7 @@ const Signup = props => {
 
   const handleSubmit = e => {
     e.preventDefault()
-    dispatch(userPostFetch(signupForm))
-    props.history.push('/profile')
-    window.alert("Don't forget to fill in your information!")
+    dispatch(userPostFetch(signupForm, routerProps))
   }
 
   // Destructuring keys from our local state to use in the form

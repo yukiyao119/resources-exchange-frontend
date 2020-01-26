@@ -1,6 +1,6 @@
 const defaultState = {
   currentUser: {},
-  loggedIn: false,
+  // loggedIn: false,
   allUsers: [],
   allExchanges: [],
   allSkills: [],
@@ -53,7 +53,8 @@ const reducer = (state = defaultState, action) => {
         }
       case 'LOGOUT_USER':
         return {
-          ...state, currentUser: {}, loggedIn: false 
+          ...state, currentUser: {}, 
+          loggedIn: false 
         }
       case 'SELECT_USER':
           return {

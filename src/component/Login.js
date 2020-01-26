@@ -4,10 +4,11 @@ import { userLoginFetch } from '../actions/UserActions';
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
 
-const Login = props => {
+const Login = (routerProps) => {
 
   const dispatch = useDispatch()
-
+  console.log(routerProps);
+  
   // Setting up local state using the useState hook 
   const [loginForm, setLoginForm] = useState({
     username: '',
@@ -17,9 +18,9 @@ const Login = props => {
   // controlled form functions
   const logInSubmitted = e => {
     e.preventDefault()
-    dispatch(userLoginFetch(loginForm))
-    props.history.push('/profile')
-    
+
+    dispatch(userLoginFetch(loginForm, routerProps))
+    // routerProps.history.push('/')
   }
 
   const onChange = e =>

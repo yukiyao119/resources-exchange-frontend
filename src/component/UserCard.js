@@ -5,25 +5,26 @@ import NewExchangeForm from './NewExchangeForm'
 import { List, Header } from 'semantic-ui-react'
 
 const UserCard = (props) => {
-
   const dispatch = useDispatch()
   const currentUser = useSelector(state => state.currentUser)
-
-  const { username, bio, donated_hour, location, time_slot} = props.user
-  // console.log("selected user", selectedUser, "props user", props.user)
   
+  const { username, bio, donated_hour, location, time_slot} = props.user
+
   const [newXStatus, setnewXStatus] = useState({
     newX: false
   })
-
+  
   const handleChange = (userObj) => {
     console.log("User Obj", userObj, "Current U", currentUser);
-    if (userObj.id !== currentUser.id){
+    if (userObj.id !== currentUser.id && currentUser.user_skills.length > 0){
       setnewXStatus({
         ...newXStatus,
         newX: !newXStatus.newX
       })
       dispatch(selectAUser(userObj))
+    } else if (currentUser.user_skills.length <= 0) {
+      window.alert("Please go to Profile page to fill in your information and choose your skills")
+      props.history.push('/profile')
     } else {
       window.alert("Can not choose yourself!")
     }
@@ -49,8 +50,5 @@ const UserCard = (props) => {
   )
 }
 
-// const userCardStyle={
-//   border: "1px orange solid"
-// }
 
 export default UserCard 

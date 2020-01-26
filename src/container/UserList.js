@@ -3,15 +3,15 @@ import { useSelector } from 'react-redux'
 import UserCard from '../component/UserCard'
 import { Container } from 'semantic-ui-react'
 
-const UserList = () => {
+const UserList = ({history}) => {
   
   const allUsers = useSelector(state => state.allUsers)
   const selectedSkill = useSelector(state => state.selectedSkill)
-  console.log("all users", allUsers)
+  // console.log("all users", allUsers)
 
 // skill: {id: 3, name: "Mandarin"}
   const skill = {id: selectedSkill.id, name: selectedSkill.name}
-  console.log("skill", skill);
+  // console.log("skill", skill);
   
   const checkIncludes = (user_skills_arr, skillObj) => {
     if (user_skills_arr.filter(element => element.skill.name === skillObj.name).length > 0) {
@@ -28,11 +28,14 @@ const UserList = () => {
       return null
     }
   })
-  console.log("filtered users", filteredUsers);
+  // console.log("filtered users", filteredUsers);
   
   const userItems = 
-  filteredUsers.map(user => (<UserCard key={user.id} user={user}/>))
+  filteredUsers.map(user => (<UserCard key={user.id} user={user} history={history}/>))
 
+
+  // console.log("UserList history", history);
+  
   return (
 
     <Container>

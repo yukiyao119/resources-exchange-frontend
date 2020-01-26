@@ -6,12 +6,12 @@ import UserList from '../container/UserList'
 import SearchBar from '../component/SearchBar'
 import { Container, Grid, Header } from 'semantic-ui-react'
 
-const Skillboard = () => {
+const Skillboard = ({history}) => {
 
   const dispatch = useDispatch()
   const allSkills = useSelector(state => state.allSkills)
   // const selectedSkill = useSelector(state => state.selectedSkill)
-  console.log("allSkills", allSkills);
+  // console.log("allSkills", allSkills);
   
   const [searchQuery, setSearchQuery] = useState({
     query: ''
@@ -39,7 +39,9 @@ const Skillboard = () => {
         />
   ))
 
-  console.log("skillItems", skillItems);
+  // console.log("skillItems", skillItems);
+
+  // console.log(history);
   
 
   return (
@@ -59,7 +61,7 @@ const Skillboard = () => {
 
           <Grid.Column width={6} style={{ 'margin': '10px'}}>
             <Header as="h1">Skill Owners</Header>
-            <UserList />
+            <UserList history={history}/>
           </Grid.Column>
 
         </Grid.Row>

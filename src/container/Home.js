@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux'
 import Skillboard from './Skillboard'
 import { Header } from 'semantic-ui-react'
 
+import { loadAllSkills } from '../actions/SkillActions'
+import { loadAllExchanges } from '../actions/ExchangeActions'
+import { loadAllReviews } from '../actions/ReviewActions'
+import { loadAllUsers } from '../actions/UserActions'
 
-const Home = ({ mobile }) => {
+const Home = ({mobile, history}) => {
 
-  // const dispatch = useDispatch()
-  // useEffect(() => { dispatch(loadAllUsers()) }, [dispatch])
+  const dispatch = useDispatch()
+  useEffect(() => {
+    dispatch(loadAllUsers())
+    dispatch(loadAllSkills())
+    dispatch(loadAllExchanges())
+    dispatch(loadAllReviews())
+  }, [dispatch])
   
   const headerH1 = {
     fontSize: mobile ? '2em' : '4em',
@@ -22,7 +32,9 @@ const Home = ({ mobile }) => {
   }
 
 
+  console.log("home histry", history)
   return (
+    
     <React.Fragment >
       <div style={homeStyle}>
         <Header
@@ -40,7 +52,7 @@ const Home = ({ mobile }) => {
           style={headerH2}
         />
       </div>
-      <Skillboard />
+      <Skillboard history={history}/>
     </React.Fragment>
   )
 

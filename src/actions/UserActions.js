@@ -1,5 +1,5 @@
-// const deployment = 'http://localhost:3000/'
-const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+const deployment = 'http://localhost:3000/'
+// const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
 // clear the localstorage token
 export const clearUserAction = () => ({
@@ -20,7 +20,7 @@ export const logoutUser = () => dispatch => {
 
 
 // user sign up, make a new user
-export const userPostFetch = user => dispatch => {
+export const userPostFetch = (user, routerProps) => dispatch => {
   const object = {
     method: "POST",
     headers: {
@@ -31,16 +31,20 @@ export const userPostFetch = user => dispatch => {
   fetch(`${deployment}users`, object)
     .then(res => res.json())
     .then(data => {
-      data.errors ? 
-        console.log(data.errors) : 
+      if (data.errors){
+        window.alert(data.errors)
+        routerProps.history.push('/')
+      } else {
         localStorage.setItem("token", data.token)
-        // localStorage.setItem("user_id", data.user.id)
         dispatch(loginUser(data.user))
+        window.alert("Don't forget to fill in your information!")
+        routerProps.history.push('/profile')
+      }
     })
 }
 
 
-export const userLoginFetch = (user) => dispatch => {
+export const userLoginFetch = (user, routerProps) => dispatch => {
     const object = {
       method: "POST",
       headers: {
@@ -52,12 +56,14 @@ export const userLoginFetch = (user) => dispatch => {
     fetch(`${deployment}login`, object)
     .then(res => res.json())
     .then(data => {
-      data.errors ?
-      
-      window.alert(data.errors)
-      : 
-      localStorage.setItem("token", data.token)
-      dispatch(loginUser(data.user))
+      if (data.errors) {
+        window.alert(data.errors)
+        routerProps.history.push('/login')
+      } else {
+        localStorage.setItem("token", data.token)
+        dispatch(loginUser(data.user))
+        routerProps.history.push('/')
+      }
     })
 }
 
@@ -78,9 +84,9 @@ export const getProfileFetch = () => dispatch => {
     .then(existingUser => {
       // existingUser has a token key, has a user key
       // message key?
-      existingUser.errors ? 
-      localStorage.removeItem("token") :
-      dispatch(loginUser(existingUser.user))
+      existingUser.user ? 
+      dispatch(loginUser(existingUser.user)) :
+      localStorage.removeItem("token")
     })
   }
 }
