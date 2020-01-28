@@ -31,7 +31,7 @@ const ProfileInfo = () => {
     <>
     <div style={ {"marginTop": "10px", "display": "flex"} }>
       <div style={ {"margin": "25px", "width": "15%"} }>
-        <Image src='/alpaca.jpg' size='small' circular verticalAlign='top' />{' '}
+        <Image src='/icon.jpg' size='small' circular verticalAlign='top' />{' '}
       </div>
       <div style={ {"margin": "25px", "width": "25%", "textAlign": "left"} }>
         <Header as='h3' color='purple'>Name: {displayname}</Header>
@@ -45,7 +45,7 @@ const ProfileInfo = () => {
           <Modal trigger={<Button>Edit</Button>} closeIcon>
             <Modal.Header>Profile Picture</Modal.Header>
             <Modal.Content image>
-              <Image wrapped size='medium' src='/alpaca.jpg' />
+              <Image wrapped size='medium' src='/icon.jpg' />
               <EditInfoForm />
               {/* <Modal.Description>
                 <Header>Modal Header</Header>

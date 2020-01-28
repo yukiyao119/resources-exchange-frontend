@@ -1,4 +1,4 @@
-// const deployment = 'http://localhost:3000/'
+const deployment = 'http://localhost:3000/'
 // const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
 
@@ -11,7 +11,7 @@ export const loadExchanges = exchangesArr => ({
 export const loadAllExchanges = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    fetch(`exchanges`, {
+    fetch(`${deployment}exchanges`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -47,7 +47,7 @@ export const cancelThisExchange = exchange => dispatch => {
   const object = {
     method: 'DELETE'
   }
-  fetch(`exchanges/${exchange.id}`, object)
+  fetch(`${deployment}exchanges/${exchange.id}`, object)
   .then(r => {
     // debugger
     dispatch(cancelExchange(exchange))
@@ -70,7 +70,7 @@ export const addAnExchange = (exchangeObj) => dispatch => {
     },
     body: JSON.stringify(exchangeObj)
     }
-  fetch(`exchanges`, object)
+  fetch(`${deployment}exchanges`, object)
     .then(res => res.json())
     .then(data => {
       // debugger
