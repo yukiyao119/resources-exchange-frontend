@@ -12,7 +12,7 @@ The original ideal was inspired by the resources exchange or barters exsisted in
 
 ## Demo
 
-https://youtu.be/Q9L_S-hlYSw
+https://youtu.be/x7aWQz0IHww
 
 
 
