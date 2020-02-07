@@ -42,6 +42,7 @@ const Login = (routerProps) => {
             <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' 
             onChange={onChange}
             name="username"
+            autoComplete="off"
             value={username}/>
             <Form.Input
               fluid

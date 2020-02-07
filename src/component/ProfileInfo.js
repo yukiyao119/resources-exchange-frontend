@@ -31,7 +31,7 @@ const ProfileInfo = () => {
     <>
     <div style={ {"marginTop": "10px", "display": "flex"} }>
       <div style={ {"margin": "25px", "width": "15%"} }>
-        <Image src='/icon.jpg' size='small' circular verticalAlign='top' />{' '}
+        <Image src='/alpaca.jpg' size='large' circular verticalAlign='top' />{' '}
       </div>
       <div style={ {"margin": "25px", "width": "25%", "textAlign": "left"} }>
         <Header as='h3' color='purple'>Name: {displayname}</Header>
@@ -45,22 +45,9 @@ const ProfileInfo = () => {
           <Modal trigger={<Button>Edit</Button>} closeIcon>
             <Modal.Header>Profile Picture</Modal.Header>
             <Modal.Content image>
-              <Image wrapped size='medium' src='/icon.jpg' />
+              <Image wrapped size='medium' src='/alpaca.jpg' />
               <EditInfoForm />
-              {/* <Modal.Description>
-                <Header>Modal Header</Header>
-                <p>
-                  This is an example of expanded content that will cause the modal's
-                  dimmer to scroll
-                </p>
-                <Image src='/images/wireframe/paragraph.png' />
-              </Modal.Description> */}
             </Modal.Content>
-            {/* <Modal.Actions>
-              <Button primary>
-                Proceed <Icon name='right chevron' />
-              </Button>
-            </Modal.Actions> */}
           </Modal>
       </div>
 

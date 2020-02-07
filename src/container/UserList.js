@@ -7,7 +7,7 @@ const UserList = ({history}) => {
   
   const allUsers = useSelector(state => state.allUsers)
   const selectedSkill = useSelector(state => state.selectedSkill)
-  // console.log("all users", allUsers)
+  console.log("all users", allUsers)
 
 // skill: {id: 3, name: "Mandarin"}
   const skill = {id: selectedSkill.id, name: selectedSkill.name}
