@@ -17,7 +17,7 @@ const Nav = () => {
       <>
         <div >
           <Menu className="ui large secondary inverted teal">
-            <Image src='/xxx.png' size='mini'/>
+            <Image src='/xxx.png' size='mini'style={{"margin":"5px", "marginLeft": "20px"}}/>
             <Link to="/" className="toc item"></Link>
             <Link to="/" className="item">Home</Link>
             <Link to="/find" className="item">Find<Label basic color='teal' pointing='left' size='small'>Beta</Label></Link>

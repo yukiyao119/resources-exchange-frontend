@@ -15,7 +15,8 @@ const ExchangeList = () => {
   let now = moment.utc();
 
   const comingExchanges = allExchanges.filter(exchange => now.isBefore(exchange.time))
-
+  console.log(comingExchanges);
+  
   const myExchanges = comingExchanges.filter(exchange => (exchange.exchanger.user.username === currentUser.username))
 
   const myProviding = comingExchanges.filter(exchange => (exchange.exchangee.user.username === currentUser.username))

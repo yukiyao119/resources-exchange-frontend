@@ -72,7 +72,7 @@ export const userLoginFetch = (user, routerProps) => dispatch => {
 export const getProfileFetch = () => dispatch => {
   const token = localStorage.token
   if (token) {
-    return fetch(`${deployment}profile`, {
+    fetch(`${deployment}profile`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -82,8 +82,6 @@ export const getProfileFetch = () => dispatch => {
     })
     .then(resp => resp.json())
     .then(existingUser => {
-      // existingUser has a token key, has a user key
-      // message key?
       existingUser.user ? 
       dispatch(loginUser(existingUser.user)) :
       localStorage.removeItem("token")
