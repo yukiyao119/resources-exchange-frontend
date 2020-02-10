@@ -18,12 +18,23 @@ https://youtu.be/ai8NupwpBpI
 
 
 ## Gif Demo
+###### Log in to Home page
 ![gifOfHomePage](demo/RXhome.gif)
+
+###### Browse skills and skill-owners
 ![gifOfBrowseAndSearch](demo/RXbrowse.gif)
+
+###### Find skill-owners all over the world
 ![gifOfFindOwners](demo/RXfind.gif)
+
+###### Make an xchange request
 ![gifOfRequest](https://media.giphy.com/media/kdX2cvAe86zYBgNevG/giphy.gif)
+
+###### Edit profile info
 ![gifOfEditInfo](demo/RXprofile.gif)
-![gifOfExchanges](demo/RXexchangesgif)
+
+###### View or cancel exchanges; Add or delete reviews
+![gifOfExchanges](demo/RXexchanges.gif)
 
 
 
