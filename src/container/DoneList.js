@@ -25,7 +25,7 @@ const DoneList = () => {
 
   const myExchangesText = myExchanges.length === 0 ? (<p>No coming exchanges yet</p>) : myExchanges.map(exchange => (
   <List key={exchange.id}>
-    <Modal trigger={<List.Item  onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
+    <Modal trigger={<List.Item id="reversedColor" onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
     {`My ${exchange.exchanger.skill} VS ${exchange.exchangee.user.username}'s ${exchange.exchangee.skill}`}</List.Item>} closeIcon>
       <Header as='h3' icon='bell' color='purple' content='Your exchange!' />
       <Modal.Content>
@@ -36,7 +36,7 @@ const DoneList = () => {
 
   const myProvidingText = myProviding.length === 0 ? (<p>No coming providing exchanges</p>) : myProviding.map(exchange => (
   <List key={exchange.id}>
-    <Modal trigger={<List.Item onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
+    <Modal trigger={<List.Item id="reversedColor" onClick={()=> {handleClick(exchange)}}><Icon name='calendar check outline'/>
     {`${exchange.exchanger.user.username}'s ${exchange.exchanger.skill} VS ${exchange.exchangee.user.username}'s ${exchange.exchangee.skill}`}</List.Item>} closeIcon>
       <Header as='h3' icon='bell' color='purple' content='Your exchange!' />
       <Modal.Content>

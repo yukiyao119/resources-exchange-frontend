@@ -35,7 +35,7 @@ const UserCard = (props) => {
       <List divided relaxed>
       <List.Item>
         <List.Icon name='user' size='large' verticalAlign='middle' />
-        <List.Content>
+        <List.Content id="cardPointer">
           <Header as='h5' color='purple' onClick={()=> handleChange(props.user)}>{username}</Header>
           <List.Description onClick={()=> handleChange(props.user)}>
             <strong>Bio: </strong> {bio} <br/>

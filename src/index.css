@@ -12,3 +12,13 @@ code {
     monospace;
 }
 
+body #reversedColor:hover{
+  background-color:#DE7121;
+  color: seashell;
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+body #cardPointer{
+  cursor: pointer;
+}
