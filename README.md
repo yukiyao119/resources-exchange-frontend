@@ -18,12 +18,12 @@ https://youtu.be/ai8NupwpBpI
 
 
 ## Gif Demo
-![gifOfHomePage](https://media.giphy.com/media/RetaglnTYHGTFe51nn/giphy.gif)
-![gifOfBrowseAndSearch](https://media.giphy.com/media/SsT3ssSdgnRoZ56Flk/giphy.gif)
-![gifOfFindOwners](https://media.giphy.com/media/XyJpDBbKLFiGWCVVAo/giphy.gif)
+![gifOfHomePage](demo/RXhome.gif)
+![gifOfBrowseAndSearch](demo/RXbrowse.gif)
+![gifOfFindOwners](demo/RXfind.gif)
 ![gifOfRequest](https://media.giphy.com/media/kdX2cvAe86zYBgNevG/giphy.gif)
-![gifOfEditInfo](https://media.giphy.com/media/hvH8fU8A3z4o5rPkLS/giphy.gif)
-![gifOfExchanges](https://media.giphy.com/media/ibpMIQFJNbFZMO3a2N/giphy.gif)
+![gifOfEditInfo](demo/RXprofile.gif)
+![gifOfExchanges](demo/RXexchangesgif)
 
 
 
@@ -72,6 +72,6 @@ This is my final project when I was in Flatiron school, so many thanks to the in
 
 
 
-## Frontend Repo
-Check out the [Backend Repo](https://github.com/yukiyao119/resources-exchange-backend) for this web application
+## Backend Repo
+Check out the [Backend Repo](https://github.com/yukiyao119/resources-exchange-backend) for this web application.
 
