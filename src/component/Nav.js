@@ -2,13 +2,26 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import { Menu, Image, Label } from 'semantic-ui-react'
+import { Menu, Image, Label, Header } from 'semantic-ui-react'
 
-const Nav = () => {
+const Nav = (mobile) => {
   const dispatch = useDispatch()
 
   const handleLogout = () => {
     dispatch(logoutUser())
+  }
+
+  const headerH1 = {
+    fontSize: mobile ? '2em' : '4em',
+    fontWeight: 'normal',
+    marginBottom: 0,
+    marginTop: mobile ? '1.5em' : '3em',
+  }
+  
+  const headerH2 = {
+    fontSize: mobile ? '1.5em' : '1.7em',
+    fontWeight: 'normal',
+    marginTop: mobile ? '0.5em' : '1.5em',
   }
   
   return (
@@ -33,6 +46,7 @@ const Nav = () => {
             <div className="ui container">
               <div className="ui large secondary inverted pointing menu">
                 <div className="right item">
+                  <Image src='/xxx.png' size='mini'style={{"margin":"5px", "marginLeft": "20px"}}/> 
                   <Link to="/signup" className="ui inverted button">Signup</Link>
                   <Link to="/login" className="ui inverted button">Login</Link>
                 </div>
@@ -40,11 +54,38 @@ const Nav = () => {
             </div>
           </div>
         </div>
+        <div style={homeStyle}>
+          <Header
+            as='h1'
+            content='Resources Xchange'
+            inverted
+            textAlign='center'
+            style={headerH1}
+          />
+          <Header
+            as='h2'
+            content='Learn new skills another way.'
+            inverted
+            textAlign='center'
+            style={headerH2}
+          />
+        </div>
       </>
     }
     </>
   )
 }
+
+const homeStyle = {
+  display: "inline-block",
+  width: "100%",
+  height: "600px",
+  backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+  backgroundSize: 'cover',
+  backgroundPosition: "center",
+  backgroundRepeat: "no-repeat"
+}
+
 
 export default Nav;
 
