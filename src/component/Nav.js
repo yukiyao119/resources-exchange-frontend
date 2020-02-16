@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { logoutUser } from '../actions/UserActions'
-import { Menu, Image, Label, Header } from 'semantic-ui-react'
+import { Menu, Image, Label } from 'semantic-ui-react'
 
 const Nav = (mobile) => {
   const dispatch = useDispatch()
@@ -25,7 +25,7 @@ const Nav = (mobile) => {
   }
   
   return (
-    <>
+    <div >
     { localStorage.token ? 
       <>
         <div >
@@ -41,51 +41,37 @@ const Nav = (mobile) => {
       </>
     :
       <>
-        <div className="pusher">
+        {/* <div className="pusher"> */}
           <div className="ui inverted vertical masthead center aligned segment">
             <div className="ui container">
               <div className="ui large secondary inverted pointing menu">
                 <div className="right item">
-                  <Image src='/xxx.png' size='mini'style={{"margin":"5px", "marginLeft": "20px"}}/> 
+                  {/* <Image src='/xxx.png' size='mini'style={{"margin":"5px", "marginLeft": "20px"}}/>  */}
                   <Link to="/signup" className="ui inverted button">Signup</Link>
                   <Link to="/login" className="ui inverted button">Login</Link>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div style={homeStyle}>
-          <Header
-            as='h1'
-            content='Resources Xchange'
-            inverted
-            textAlign='center'
-            style={headerH1}
-          />
-          <Header
-            as='h2'
-            content='Learn new skills another way.'
-            inverted
-            textAlign='center'
-            style={headerH2}
-          />
-        </div>
+          
+        {/* </div> */}
       </>
     }
-    </>
+    </div>
   )
 }
 
-const homeStyle = {
-  display: "inline-block",
-  width: "100%",
-  height: "600px",
-  backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
-  backgroundSize: 'cover',
-  backgroundPosition: "center",
-  backgroundRepeat: "no-repeat"
-}
-
+// const homeStyle = {
+//   // display: "inline-block",
+//   position: "absolute",
+//   width: "100%",
+//   height: "600px",
+//   backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+//   backgroundSize: 'cover',
+//   backgroundPosition: "center",
+//   backgroundRepeat: "no-repeat",
+//   zIndex: "-1"
+// }
 
 export default Nav;
 
