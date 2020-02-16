@@ -7,7 +7,7 @@ import mapStyles from "../mapStyles"
 import { selectAUser } from '../actions/UserActions'
 import { Segment } from "semantic-ui-react"
 
-function Map() {
+function Map(props) {
 
   const dispatch = useDispatch()
   const allUsers = useSelector(state => state.allUsers)
@@ -40,13 +40,24 @@ function Map() {
       newX: false
     })
   }
-  const handleShowForm = () => {
+  const handleShowForm = (userObj) => {
     setLocalSelectedUser(null)
-    setnewXStatus({
-      ...newXStatus,
-      newX: !newXStatus.newX
-    })
+    if (userObj.id !== currentUser.id && currentUser.user_skills.length > 0){
+      setnewXStatus({
+        ...newXStatus,
+        newX: !newXStatus.newX
+      })
+      setLocalSelectedUser(userObj)
+      dispatch(selectAUser(userObj))
+    } else if (currentUser.user_skills.length <= 0) {
+      window.alert("Please go to Profile page to fill in your information and choose your skills")
+      props.history.push('/profile')
+    } else {
+      window.alert("Can not choose yourself!")
+    }
   }
+
+
 
   const handleClickUser = (user) =>{
     setLocalSelectedUser(user)
