@@ -63,7 +63,7 @@ const homeStyle = {
   display: "inline-block",
   width: "100%",
   height: "600px",
-  backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+  backgroundImage: `url(${"/backgroundimg.jpg"})`,
   backgroundSize: 'cover',
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat"
