@@ -44,18 +44,19 @@ import { getProfileFetch } from './actions/UserActions'
       </>
       :
       <>
-          <Nav />
-          <Route path="/signup" 
-            render= { routerProps => <Signup {...routerProps}/>}/>
-          <Route path="/login" 
-            render= { routerProps => <Login {...routerProps}/>}/>
-          <Redirect to='/'/>
-      
+        <Nav />
+        <Route path="/signup" 
+          render= { routerProps => <Signup {...routerProps}/>}/>
+        <Route path="/login" 
+          render= { routerProps => <Login {...routerProps}/>}/>
+        <Redirect to='/login'/>
       </>
     }
   </>
   )
 
 }
+
+
 
 export default withRouter(App)

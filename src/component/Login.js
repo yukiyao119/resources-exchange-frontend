@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { userLoginFetch } from '../actions/UserActions';
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import LoadingIndicator from './LoadingIndicator'
 
 const Login = (routerProps) => {
 
@@ -28,12 +29,18 @@ const Login = (routerProps) => {
 
   // Destructuring keys from our local state to use in the form
   const { username, password } = loginForm
-
+  
   // Component code
   return (
-
+    <>
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h4' color='gray' textAlign='center'>
+          <span>Welcome!<br/> Feel free to log in to the demo account and explore! </span><br/>
+          <span>Username: yukiyao </span>
+          <span>Password: 111 </span>
+        </Header>
+        <LoadingIndicator/>
         <Header as='h2' color='teal' textAlign='center'>
           <Image src='/xxx.png' /> Log-in to your account
         </Header>
@@ -66,7 +73,7 @@ const Login = (routerProps) => {
         </Message>
       </Grid.Column>
     </Grid>
-
+    </>
   )
 }
 

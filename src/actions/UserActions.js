@@ -1,5 +1,7 @@
-const deployment = 'http://localhost:3000/'
-// const deployment = 'https://resources-exchange-backend.herokuapp.com/'
+import { trackPromise } from 'react-promise-tracker'
+
+// const deployment = 'http://localhost:3000/'
+const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
 // clear the localstorage token
 export const clearUserAction = () => ({
@@ -53,6 +55,7 @@ export const userLoginFetch = (user, routerProps) => dispatch => {
       },
       body: JSON.stringify(user)
     }
+    trackPromise(
     fetch(`${deployment}login`, object)
     .then(res => res.json())
     .then(data => {
@@ -64,7 +67,7 @@ export const userLoginFetch = (user, routerProps) => dispatch => {
         dispatch(loginUser(data.user))
         routerProps.history.push('/')
       }
-    })
+    }))
 }
 
 
@@ -72,6 +75,7 @@ export const userLoginFetch = (user, routerProps) => dispatch => {
 export const getProfileFetch = () => dispatch => {
   const token = localStorage.token
   if (token) {
+    trackPromise(
     fetch(`${deployment}profile`, {
       method: "GET",
       headers: {
@@ -85,7 +89,7 @@ export const getProfileFetch = () => dispatch => {
       existingUser.user ? 
       dispatch(loginUser(existingUser.user)) :
       localStorage.removeItem("token")
-    })
+    }))
   }
 }
 
@@ -99,6 +103,7 @@ export const loadUsers = allUsers => ({
 export const loadAllUsers = () => dispatch => {
   const token = localStorage.token
   if (token) {
+    trackPromise(
     fetch(`${deployment}users`, {
       method: "GET",
       headers: {
@@ -111,7 +116,7 @@ export const loadAllUsers = () => dispatch => {
     .then(data => {
       // debugger
       dispatch(loadUsers(data))
-    })
+    }))
   }
 }
 

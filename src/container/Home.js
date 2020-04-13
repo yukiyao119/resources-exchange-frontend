@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import Skillboard from './Skillboard'
 import { Header } from 'semantic-ui-react'
+import LoadingIndicator from '../component/LoadingIndicator'
 
 import { loadAllSkills } from '../actions/SkillActions'
 import { loadAllExchanges } from '../actions/ExchangeActions'
@@ -36,6 +37,7 @@ const Home = ({mobile, history}) => {
   return (
     
     <React.Fragment >
+      <LoadingIndicator/>
       <div style={homeStyle}>
         <Header
           as='h1'
@@ -63,7 +65,7 @@ const homeStyle = {
   display: "inline-block",
   width: "100%",
   height: "600px",
-  backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+  backgroundImage: `url(${"/backgroundimg.jpg"})`,
   backgroundSize: 'cover',
   backgroundPosition: "center",
   backgroundRepeat: "no-repeat"

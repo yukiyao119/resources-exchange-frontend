@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { userPostFetch } from '../actions/UserActions';
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import LoadingIndicator from './LoadingIndicator'
 
 const Signup = routerProps => {
   const dispatch = useDispatch()
@@ -28,11 +29,14 @@ const Signup = routerProps => {
 
   // Component code
   return (
+    // <div style={homeStyle}>
+          
   <Grid textAlign='center' style={{ 'height': '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='teal' textAlign='center'>
         <Image src='/xxx.png' /> Sign Up
       </Header>
+      <LoadingIndicator/>
       <Form size='large' onSubmit={handleSubmit}>
         <Segment stacked>
           <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' 
@@ -61,8 +65,21 @@ const Signup = routerProps => {
       </Message>
     </Grid.Column>
   </Grid>
+  // </div>
   )
 }
+
+
+// const homeStyle = {
+//   // display: "inline-block",
+//   width: "100%",
+//   height: "600px",
+//   backgroundImage: `url(${"/artem-beliaikin-v6kii3H5CcU-unsplash.jpg"})`,
+//   backgroundSize: 'cover',
+//   backgroundPosition: "center",
+//   backgroundRepeat: "no-repeat",
+//   // zIndex: "9"
+// }
 
 export default Signup;
 

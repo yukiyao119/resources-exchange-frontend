@@ -5,6 +5,7 @@ import { selectASkill } from '../actions/SkillActions'
 import UserList from '../container/UserList'
 import SearchBar from '../component/SearchBar'
 import { Container, Grid, Header } from 'semantic-ui-react'
+import LoadingIndicator from '../component/LoadingIndicator'
 
 const Skillboard = ({history}) => {
 
@@ -54,6 +55,7 @@ const Skillboard = ({history}) => {
 
           <Grid.Column width={9} >
             <Header as="h1">Skill Board</Header>
+            <LoadingIndicator/>
             <div style={{ 'margin': '10px', 'display': 'flex', 'flexWrap': 'wrap'}}>
               {skillItems}
             </div>

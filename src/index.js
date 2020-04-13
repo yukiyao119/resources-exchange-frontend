@@ -7,12 +7,13 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom'
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import {createStore, applyMiddleware} from 'redux'
+import {createStore, applyMiddleware, compose} from 'redux'
 import reducer from './reducers/reducer';
 import 'semantic-ui-css/semantic.min.css'
 
-
-const store = createStore(reducer, applyMiddleware(thunk))
+// const store = createStore(reducer, applyMiddleware(thunk))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(reducer, composeEnhancers(applyMiddleware(thunk)))
 
 
 ReactDOM.render(
