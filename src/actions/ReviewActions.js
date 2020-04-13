@@ -1,3 +1,5 @@
+import { trackPromise } from 'react-promise-tracker'
+
 // const deployment = 'http://localhost:3000/'
 const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
@@ -11,6 +13,7 @@ export const loadReviews = reviewsArr => ({
 export const loadAllReviews = () => dispatch => {
   // const token = localStorage.token
   // if (token) {
+    trackPromise(
     fetch(`${deployment}reviews`, {
       method: "GET",
       headers: {
@@ -22,7 +25,7 @@ export const loadAllReviews = () => dispatch => {
     .then(data => {
       // debugger
       dispatch(loadReviews(data))
-    })
+    }))
   // }
 }
 

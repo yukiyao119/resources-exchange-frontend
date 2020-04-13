@@ -1,3 +1,5 @@
+import { trackPromise } from 'react-promise-tracker'
+
 // const deployment = 'http://localhost:3000/'
 const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
@@ -11,6 +13,7 @@ export const loadSkills = skillsArr => ({
 export const loadAllSkills = () => dispatch => {
   const token = localStorage.token
   if (token) {
+    trackPromise(
     fetch(`${deployment}skills`, {
       method: "GET",
       headers: {
@@ -23,7 +26,7 @@ export const loadAllSkills = () => dispatch => {
     .then(data => {
       // debugger
       dispatch(loadSkills(data))
-    })
+    }))
   }
 }
 

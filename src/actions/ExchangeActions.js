@@ -1,3 +1,5 @@
+import { trackPromise } from 'react-promise-tracker'
+
 // const deployment = 'http://localhost:3000/'
 const deployment = 'https://resources-exchange-backend.herokuapp.com/'
 
@@ -11,6 +13,7 @@ export const loadExchanges = exchangesArr => ({
 export const loadAllExchanges = () => dispatch => {
   const token = localStorage.token
   if (token) {
+    trackPromise(
     fetch(`${deployment}exchanges`, {
       method: "GET",
       headers: {
@@ -22,7 +25,7 @@ export const loadAllExchanges = () => dispatch => {
     .then(resp => resp.json())
     .then(data => {
       dispatch(loadExchanges(data))
-    })
+    }))
   }
 }
 

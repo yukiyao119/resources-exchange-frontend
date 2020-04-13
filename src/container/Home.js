@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
 import Skillboard from './Skillboard'
 import { Header } from 'semantic-ui-react'
+import LoadingIndicator from '../component/LoadingIndicator'
 
 import { loadAllSkills } from '../actions/SkillActions'
 import { loadAllExchanges } from '../actions/ExchangeActions'
@@ -36,6 +37,7 @@ const Home = ({mobile, history}) => {
   return (
     
     <React.Fragment >
+      <LoadingIndicator/>
       <div style={homeStyle}>
         <Header
           as='h1'

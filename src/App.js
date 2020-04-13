@@ -49,7 +49,7 @@ import { getProfileFetch } from './actions/UserActions'
           render= { routerProps => <Signup {...routerProps}/>}/>
         <Route path="/login" 
           render= { routerProps => <Login {...routerProps}/>}/>
-        <Redirect to='/'/>
+        <Redirect to='/login'/>
       </>
     }
   </>

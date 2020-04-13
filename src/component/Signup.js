@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { userPostFetch } from '../actions/UserActions';
 import { Link } from 'react-router-dom'
 import { Button, Form, Grid, Header, Image, Message, Segment } from 'semantic-ui-react'
+import LoadingIndicator from './LoadingIndicator'
 
 const Signup = routerProps => {
   const dispatch = useDispatch()
@@ -35,6 +36,7 @@ const Signup = routerProps => {
       <Header as='h2' color='teal' textAlign='center'>
         <Image src='/xxx.png' /> Sign Up
       </Header>
+      <LoadingIndicator/>
       <Form size='large' onSubmit={handleSubmit}>
         <Segment stacked>
           <Form.Input fluid icon='user' iconPosition='left' placeholder='Username' 

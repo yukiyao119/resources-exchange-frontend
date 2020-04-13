@@ -49,12 +49,12 @@ const reducer = (state = defaultState, action) => {
         return {
           ...state,
           currentUser: action.payload,
-          loggedIn: true
+          // loggedIn: true
         }
       case 'LOGOUT_USER':
         return {
           ...state, currentUser: {}, 
-          loggedIn: false 
+          // loggedIn: false 
         }
       case 'SELECT_USER':
           return {
